@@ -138,8 +138,8 @@ export default function CareersPage() {
   const [expandedJob, setExpandedJob] = useState<string | null>(null)
   const [applyingJob, setApplyingJob] = useState<string | null>(null)
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const [resumeFileName, setResumeFileName] = useState<string | null>(null)
-  const [otherFileName, setOtherFileName] = useState<string | null>(null)
+  const [resumeFile, setResumeFile] = useState<File | null>(null)
+  const [otherFile, setOtherFile] = useState<File | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
   const [debugInfo, setDebugInfo] = useState<string>('')
@@ -153,8 +153,14 @@ export default function CareersPage() {
     const form = e.currentTarget
     const formData = new FormData(form)
     formData.append('jobTitle', applyingJob || '')
-
-    console.log('[v0] Submitting application form')
+    
+    // Manually append files from state (for drag & drop support)
+    if (resumeFile) {
+      formData.set('resume', resumeFile)
+    }
+    if (otherFile) {
+      formData.set('otherFile', otherFile)
+    }
 
     try {
       const response = await fetch('/api/send/apply', {
@@ -163,22 +169,19 @@ export default function CareersPage() {
       })
 
       const result = await response.json()
-      console.log('[v0] API response:', result)
 
       if (response.ok) {
         setFormSubmitted(true)
-        setResumeFileName(null)
-        setOtherFileName(null)
+        setResumeFile(null)
+        setOtherFile(null)
       } else {
         setSubmitError(result.error || 'エラーが発生しました')
         if (result.debug) {
           const debugStr = typeof result.debug === 'string' ? result.debug : JSON.stringify(result.debug, null, 2)
           setDebugInfo(debugStr)
-          console.error('[v0] Debug info:', result.debug)
         }
       }
     } catch (err) {
-      console.error('[v0] Network error:', err)
       setSubmitError('ネットワークエラーが発生しました')
       setDebugInfo(err instanceof Error ? err.message : 'Unknown error')
     } finally {
@@ -769,15 +772,15 @@ export default function CareersPage() {
                           onDragOver={(e) => e.preventDefault()}
                           onDrop={(e) => {
                             e.preventDefault()
-                            if (e.dataTransfer.files[0]) setResumeFileName(e.dataTransfer.files[0].name)
+                            if (e.dataTransfer.files[0]) setResumeFile(e.dataTransfer.files[0])
                           }}
                         >
-                          {resumeFileName ? (
-                            <span className="text-sm text-black font-bold">{resumeFileName}</span>
+                          {resumeFile ? (
+                            <span className="text-sm text-black font-bold">{resumeFile.name}</span>
                           ) : (
                             <>
                               <svg className="w-8 h-8 text-gray-400 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
-                              <span className="text-sm text-gray-500">{"ファイルを選択するか、ここにドラッグ＆ドロップしてください"}</span>
+                              <span className="text-sm text-gray-500">ファイルを選択するか、ここにドラッグ＆ドロップしてください</span>
                             </>
                           )}
                           <input
@@ -785,30 +788,30 @@ export default function CareersPage() {
                             name="resume"
                             type="file"
                             className="hidden"
-                            required={!resumeFileName}
+                            required={!resumeFile}
                             onChange={(e) => {
-                              if (e.target.files?.[0]) setResumeFileName(e.target.files[0].name)
+                              if (e.target.files?.[0]) setResumeFile(e.target.files[0])
                             }}
                           />
                         </label>
                       </div>
                       <div>
-                        <label className="block text-sm font-bold text-black mb-1.5">{"その他"}<span className="text-gray-400 text-xs ml-1">{"(任意)"}</span></label>
+                        <label className="block text-sm font-bold text-black mb-1.5">その他<span className="text-gray-400 text-xs ml-1">(任意)</span></label>
                         <label
                           htmlFor="otherFile"
                           className="flex flex-col items-center justify-center w-full border-2 border-dashed border-gray-300 rounded-lg py-8 px-4 cursor-pointer hover:border-black transition-colors"
                           onDragOver={(e) => e.preventDefault()}
                           onDrop={(e) => {
                             e.preventDefault()
-                            if (e.dataTransfer.files[0]) setOtherFileName(e.dataTransfer.files[0].name)
+                            if (e.dataTransfer.files[0]) setOtherFile(e.dataTransfer.files[0])
                           }}
                         >
-                          {otherFileName ? (
-                            <span className="text-sm text-black font-bold">{otherFileName}</span>
+                          {otherFile ? (
+                            <span className="text-sm text-black font-bold">{otherFile.name}</span>
                           ) : (
                             <>
                               <svg className="w-8 h-8 text-gray-400 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
-                              <span className="text-sm text-gray-500">{"ファイルを選択するか、ここにドラッグ＆ドロップしてください"}</span>
+                              <span className="text-sm text-gray-500">ファイルを選択するか、ここにドラッグ＆ドロップしてください</span>
                             </>
                           )}
                           <input
@@ -817,7 +820,7 @@ export default function CareersPage() {
                             type="file"
                             className="hidden"
                             onChange={(e) => {
-                              if (e.target.files?.[0]) setOtherFileName(e.target.files[0].name)
+                              if (e.target.files?.[0]) setOtherFile(e.target.files[0])
                             }}
                           />
                         </label>

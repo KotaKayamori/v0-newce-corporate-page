@@ -42,24 +42,24 @@ export async function POST(request: Request) {
     // Prepare attachments
     const attachments: { filename: string; content: Buffer }[] = []
     
-    let resumeInfo = '（添付なし）'
-    if (resumeFile && resumeFile.size > 0) {
+    let resumeInfo = 'なし（未添付）'
+    if (resumeFile && resumeFile.size > 0 && resumeFile.name) {
       const resumeBuffer = Buffer.from(await resumeFile.arrayBuffer())
       attachments.push({
         filename: resumeFile.name,
         content: resumeBuffer,
       })
-      resumeInfo = resumeFile.name
+      resumeInfo = `添付あり（ファイル名：${resumeFile.name}）`
     }
 
-    let otherInfo = '（添付なし）'
-    if (otherFile && otherFile.size > 0) {
+    let otherInfo = 'なし（未添付）'
+    if (otherFile && otherFile.size > 0 && otherFile.name) {
       const otherBuffer = Buffer.from(await otherFile.arrayBuffer())
       attachments.push({
         filename: otherFile.name,
         content: otherBuffer,
       })
-      otherInfo = otherFile.name
+      otherInfo = `添付あり（ファイル名：${otherFile.name}）`
     }
 
     const emailBody = `[ 1. 個人情報 ]
