@@ -299,7 +299,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    {"SNS発のIPや自社プロダクトの世界観を形にするため、コンテンツの企画・撮影・編集までを一貫して手がけます。ショート動画やビジュアル制作など、時代の熱量に合わせたクリエイティブをダイレクトに形にし、視覚とストーリーの両面からユーザーの心を動かす高品質なコンテンツを創出します。"}
+                    {"SNS発のIPや自社プロダクトの世界観を形にするため、コンテンツの企画・撮影・編集までを一貫して手がけます。ショー���動画やビジュアル制作など、時代の熱量に合わせたクリエイティブをダイレクトに形にし、視覚とストーリーの両面からユーザーの心を動かす高品質なコンテンツを創出します。"}
                   </p>
                 </div>
                 </ScrollReveal>
@@ -593,7 +593,7 @@ export default function Home() {
                     />
                     <span className="text-xs text-black leading-relaxed">
                       {"当社（株式会社Newce）は、お客様より取得する個人情報を、お問い合わせいただいたご質問やご要望へ回答する目的でのみ利用いたします。なお、当社の個人情報保護に関する基本方針については、以下の"}
-                      <Link href="/privacy-policy" target="_blank" className="text-blue-600 underline hover:text-blue-800">{"プライバシーポリシー"}</Link>
+                      <Link href="/privacy-policy" className="text-blue-600 underline hover:text-blue-800">プライバシーポリシー</Link>
                       {"をご確認ください。"}
                     </span>
                   </div>
