@@ -1,6 +1,17 @@
 import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
 
+// Increase body size limit for file uploads (10MB)
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+}
+
+// Alternative: use runtime config for App Router
+export const runtime = 'nodejs'
+export const maxDuration = 30
+
 const genderLabels: Record<string, string> = {
   male: '男性',
   female: '女性',
