@@ -18,12 +18,13 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const form = e.currentTarget
     setIsSubmitting(true)
     setSubmitStatus('idle')
     setErrorMessage('')
     setDebugInfo('')
 
-    const formData = new FormData(e.currentTarget)
+    const formData = new FormData(form)
     const data = {
       name: formData.get('name') as string,
       company: formData.get('company') as string,
@@ -31,8 +32,6 @@ export default function ContactPage() {
       purpose: formData.get('purpose') as string,
       message: formData.get('message') as string,
     }
-
-    console.log('[v0] Submitting contact form:', data)
 
     try {
       const response = await fetch('/api/send/contact', {
@@ -42,22 +41,19 @@ export default function ContactPage() {
       })
 
       const result = await response.json()
-      console.log('[v0] API response:', result)
 
       if (response.ok) {
         setSubmitStatus('success')
-        e.currentTarget.reset()
+        form.reset()
       } else {
         setErrorMessage(result.error || 'エラーが発生しました')
         if (result.debug) {
           const debugStr = typeof result.debug === 'string' ? result.debug : JSON.stringify(result.debug, null, 2)
           setDebugInfo(debugStr)
-          console.error('[v0] Debug info:', result.debug)
         }
         setSubmitStatus('error')
       }
     } catch (err) {
-      console.error('[v0] Network error:', err)
       setErrorMessage('ネットワークエラーが発生しました')
       setDebugInfo(err instanceof Error ? err.message : 'Unknown error')
       setSubmitStatus('error')
@@ -156,7 +152,7 @@ export default function ContactPage() {
                       <option value="recruit">採用について</option>
                       <option value="press">広報・取材・登壇について</option>
                       <option value="ad">広告・宣伝について</option>
-                      <option value="partnership">提携・パートナーに関するご相談について</option>
+                      <option value="partnership">���携・パートナーに関するご相談について</option>
                       <option value="other">その他</option>
                     </select>
                   </div>

@@ -15,12 +15,13 @@ export default function Home() {
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const form = e.currentTarget
     setIsSubmitting(true)
     setSubmitStatus('idle')
     setErrorMessage('')
     setDebugInfo('')
 
-    const formData = new FormData(e.currentTarget)
+    const formData = new FormData(form)
     const data = {
       name: formData.get('name') as string,
       company: formData.get('company') as string,
@@ -28,8 +29,6 @@ export default function Home() {
       purpose: formData.get('purpose') as string,
       message: formData.get('message') as string,
     }
-
-    console.log('[v0] Submitting contact form from home:', data)
 
     try {
       const response = await fetch('/api/send/contact', {
@@ -39,22 +38,19 @@ export default function Home() {
       })
 
       const result = await response.json()
-      console.log('[v0] API response:', result)
 
       if (response.ok) {
         setSubmitStatus('success')
-        e.currentTarget.reset()
+        form.reset()
       } else {
         setErrorMessage(result.error || 'エラーが発生しました')
         if (result.debug) {
           const debugStr = typeof result.debug === 'string' ? result.debug : JSON.stringify(result.debug, null, 2)
           setDebugInfo(debugStr)
-          console.error('[v0] Debug info:', result.debug)
         }
         setSubmitStatus('error')
       }
     } catch (err) {
-      console.error('[v0] Network error:', err)
       setErrorMessage('ネットワークエラーが発生しました')
       setDebugInfo(err instanceof Error ? err.message : 'Unknown error')
       setSubmitStatus('error')
