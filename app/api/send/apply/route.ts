@@ -1,16 +1,12 @@
 import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
 
-// Increase body size limit for file uploads (10MB)
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}
-
-// Alternative: use runtime config for App Router
+// App Router config for file uploads
 export const runtime = 'nodejs'
-export const maxDuration = 30
+export const dynamic = 'force-dynamic'
+
+// Max file size: 5MB per file
+const MAX_FILE_SIZE = 5 * 1024 * 1024
 
 const genderLabels: Record<string, string> = {
   male: '男性',
@@ -49,6 +45,20 @@ export async function POST(request: Request) {
     const genderLabel = genderLabels[gender] || gender
     const now = new Date()
     const receivedDate = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}`
+
+    // Validate file sizes
+    if (resumeFile && resumeFile.size > MAX_FILE_SIZE) {
+      return NextResponse.json({ 
+        error: '履歴書のファイルサイズが大きすぎます（5MB以下にしてください）',
+        debug: `File size: ${(resumeFile.size / 1024 / 1024).toFixed(2)}MB`
+      }, { status: 400 })
+    }
+    if (otherFile && otherFile.size > MAX_FILE_SIZE) {
+      return NextResponse.json({ 
+        error: 'その他のファイルサイズが大きすぎます（5MB以下にしてください）',
+        debug: `File size: ${(otherFile.size / 1024 / 1024).toFixed(2)}MB`
+      }, { status: 400 })
+    }
 
     // Prepare attachments
     const attachments: { filename: string; content: Buffer }[] = []
