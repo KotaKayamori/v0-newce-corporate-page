@@ -14,12 +14,14 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [debugInfo, setDebugInfo] = useState<string>('')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus('idle')
     setErrorMessage('')
+    setDebugInfo('')
 
     const formData = new FormData(e.currentTarget)
     const data = {
@@ -30,6 +32,8 @@ export default function ContactPage() {
       message: formData.get('message') as string,
     }
 
+    console.log('[v0] Submitting contact form:', data)
+
     try {
       const response = await fetch('/api/send/contact', {
         method: 'POST',
@@ -37,16 +41,25 @@ export default function ContactPage() {
         body: JSON.stringify(data),
       })
 
+      const result = await response.json()
+      console.log('[v0] API response:', result)
+
       if (response.ok) {
         setSubmitStatus('success')
         e.currentTarget.reset()
       } else {
-        const result = await response.json()
         setErrorMessage(result.error || 'エラーが発生しました')
+        if (result.debug) {
+          const debugStr = typeof result.debug === 'string' ? result.debug : JSON.stringify(result.debug, null, 2)
+          setDebugInfo(debugStr)
+          console.error('[v0] Debug info:', result.debug)
+        }
         setSubmitStatus('error')
       }
-    } catch {
+    } catch (err) {
+      console.error('[v0] Network error:', err)
       setErrorMessage('ネットワークエラーが発生しました')
+      setDebugInfo(err instanceof Error ? err.message : 'Unknown error')
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -172,7 +185,12 @@ export default function ContactPage() {
                   </div>
                   {submitStatus === 'error' && (
                     <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-600">
-                      {errorMessage}
+                      <p className="font-bold mb-2">{errorMessage}</p>
+                      {debugInfo && (
+                        <pre className="mt-2 text-xs bg-red-100 p-2 rounded overflow-x-auto whitespace-pre-wrap">
+                          Debug: {debugInfo}
+                        </pre>
+                      )}
                     </div>
                   )}
                   <div className="flex justify-center pt-4">

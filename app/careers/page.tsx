@@ -142,15 +142,19 @@ export default function CareersPage() {
   const [otherFileName, setOtherFileName] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
+  const [debugInfo, setDebugInfo] = useState<string>('')
 
   const handleApplySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitError('')
+    setDebugInfo('')
 
     const form = e.currentTarget
     const formData = new FormData(form)
     formData.append('jobTitle', applyingJob || '')
+
+    console.log('[v0] Submitting application form')
 
     try {
       const response = await fetch('/api/send/apply', {
@@ -158,16 +162,25 @@ export default function CareersPage() {
         body: formData,
       })
 
+      const result = await response.json()
+      console.log('[v0] API response:', result)
+
       if (response.ok) {
         setFormSubmitted(true)
         setResumeFileName(null)
         setOtherFileName(null)
       } else {
-        const result = await response.json()
         setSubmitError(result.error || 'エラーが発生しました')
+        if (result.debug) {
+          const debugStr = typeof result.debug === 'string' ? result.debug : JSON.stringify(result.debug, null, 2)
+          setDebugInfo(debugStr)
+          console.error('[v0] Debug info:', result.debug)
+        }
       }
-    } catch {
+    } catch (err) {
+      console.error('[v0] Network error:', err)
       setSubmitError('ネットワークエラーが発生しました')
+      setDebugInfo(err instanceof Error ? err.message : 'Unknown error')
     } finally {
       setIsSubmitting(false)
     }
@@ -347,7 +360,7 @@ export default function CareersPage() {
                       <p>
                         {"私たちの社名「Newce」には、"}
                         <br />
-                        {"新しいサービス（New service）を通じて、"}
+                        {"新しいサー��ス（New service）を通じて、"}
                         <br />
                         {"常に人々の話題（News）の中心であり続けるという"}
                         <br />
@@ -863,7 +876,12 @@ export default function CareersPage() {
                   {/* Error message */}
                   {submitError && (
                     <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-600">
-                      {submitError}
+                      <p className="font-bold mb-2">{submitError}</p>
+                      {debugInfo && (
+                        <pre className="mt-2 text-xs bg-red-100 p-2 rounded overflow-x-auto whitespace-pre-wrap">
+                          Debug: {debugInfo}
+                        </pre>
+                      )}
                     </div>
                   )}
 
