@@ -1,6 +1,6 @@
 "use client"
+import { useState } from "react"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import ScrollReveal from "@/components/scroll-reveal"
@@ -8,6 +8,47 @@ import ScrollReveal from "@/components/scroll-reveal"
 import Image from "next/image"
 
 export default function Home() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
+
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get('name') as string,
+      company: formData.get('company') as string,
+      email: formData.get('email') as string,
+      purpose: formData.get('purpose') as string,
+      message: formData.get('message') as string,
+    }
+
+    try {
+      const response = await fetch('/api/send/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        e.currentTarget.reset()
+      } else {
+        const result = await response.json()
+        setErrorMessage(result.error || 'エラーが発生しました')
+        setSubmitStatus('error')
+      }
+    } catch {
+      setErrorMessage('ネットワークエラーが発生しました')
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
@@ -299,7 +340,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    {"SNS発のIPや自社プロダクトの世界観を形にするため、コンテンツの企画・撮影・編集までを一貫して手がけます。ショー���動画やビジュアル制作など、時代の熱量に合わせたクリエイティブをダイレクトに形にし、視覚とストーリーの両面からユーザーの心を動かす高品質なコンテンツを創出します。"}
+                    {"SNS発のIPや自社プロダクトの世界観を形にするため、コンテンツの企画・撮影・編集までを一貫して手がけます。ショー���動画やビジュアル制作���ど、時代の熱量に合わせたクリエイティブをダイレクトに形にし、視覚とストーリーの両面からユーザーの心を動かす高品質なコンテンツを創出します。"}
                   </p>
                 </div>
                 </ScrollReveal>
@@ -526,7 +567,25 @@ export default function Home() {
 
               {/* White card form */}
               <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
-                <form className="space-y-6">
+                {submitStatus === 'success' ? (
+                  <div className="text-center py-12">
+                    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center">
+                      <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-black mb-2">送信完了</h3>
+                    <p className="text-sm text-gray-600 mb-6">お問い合わせを受け付けました。担当者からご連絡いたします。</p>
+                    <button
+                      type="button"
+                      onClick={() => setSubmitStatus('idle')}
+                      className="inline-flex items-center justify-center px-8 py-3 border border-black bg-white text-black font-medium text-base rounded-full hover:bg-black hover:text-white transition-colors duration-300"
+                    >
+                      新しいお問い合わせ
+                    </button>
+                  </div>
+                ) : (
+                <form className="space-y-6" onSubmit={handleContactSubmit}>
                   <div className="space-y-2">
                     <label htmlFor="home-name" className="text-sm font-bold text-black">お名前</label>
                     <input
@@ -597,15 +656,22 @@ export default function Home() {
                       {"をご確認ください。"}
                     </span>
                   </div>
+                  {submitStatus === 'error' && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-600">
+                      {errorMessage}
+                    </div>
+                  )}
                   <div className="flex justify-center pt-4">
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center px-12 py-3 border-2 border-black bg-white text-black font-bold text-base rounded-full hover:bg-black hover:text-white transition-colors duration-300"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center justify-center px-12 py-3 border-2 border-black bg-white text-black font-bold text-base rounded-full hover:bg-black hover:text-white transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Send
+                      {isSubmitting ? '送信中...' : 'Send'}
                     </button>
                   </div>
                 </form>
+                )}
               </div>
             </div>
           </div>
