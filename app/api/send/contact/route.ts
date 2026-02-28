@@ -52,7 +52,7 @@ ${message}
     console.log('[v0] Sending email via Resend...')
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'info@newce.co.jp',
+      to: 'kota.kayamori@newce.co.jp',
       subject: `【要確認】HP問い合わせ：${purposeLabel}（${company || '個人'} ${name}様）`,
       text: emailBody,
     })

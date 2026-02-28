@@ -101,7 +101,7 @@ Webサイト / SNS / Github： ${links}
 
     const { data, error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'info@newce.co.jp',
+      to: 'kota.kayamori@newce.co.jp',
       subject: `【Apply】新規採用応募：${lastName} ${firstName} 様（${genderLabel}）`,
       text: emailBody,
       attachments: attachments.length > 0 ? attachments : undefined,
