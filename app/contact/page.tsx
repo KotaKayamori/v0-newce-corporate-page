@@ -3,42 +3,63 @@
 import type React from "react"
 
 import { useState } from "react"
-import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import ScrollingBanner from "@/components/scrolling-banner"
 import ScrollReveal from "@/components/scroll-reveal"
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [debugInfo, setDebugInfo] = useState<string>('')
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // ここに実際のフォーム送信処理を実装
-    console.log("Form submitted:", formData)
-    alert("お問い合わせを受け付けました。担当者からご連絡いたします。")
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      message: "",
-    })
+    const form = e.currentTarget
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
+    setDebugInfo('')
+
+    const formData = new FormData(form)
+    const data = {
+      name: formData.get('name') as string,
+      company: formData.get('company') as string,
+      email: formData.get('email') as string,
+      purpose: formData.get('purpose') as string,
+      message: formData.get('message') as string,
+    }
+
+    try {
+      const response = await fetch('/api/send/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        form.reset()
+      } else {
+        setErrorMessage(result.error || 'エラーが発生しました')
+        if (result.debug) {
+          const debugStr = typeof result.debug === 'string' ? result.debug : JSON.stringify(result.debug, null, 2)
+          setDebugInfo(debugStr)
+        }
+        setSubmitStatus('error')
+      }
+    } catch (err) {
+      setErrorMessage('ネットワークエラーが発生しました')
+      setDebugInfo(err instanceof Error ? err.message : 'Unknown error')
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -69,7 +90,25 @@ export default function ContactPage() {
               {/* White card form */}
               <ScrollReveal delay={200}>
               <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
-                <form className="space-y-6">
+                {submitStatus === 'success' ? (
+                  <div className="text-center py-12">
+                    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center">
+                      <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-black mb-2">送信完了</h3>
+                    <p className="text-sm text-gray-600 mb-6">お問い合わせを受け付けました。担当者からご連絡いたします。</p>
+                    <button
+                      type="button"
+                      onClick={() => setSubmitStatus('idle')}
+                      className="inline-flex items-center justify-center px-8 py-3 border border-black bg-white text-black font-medium text-base rounded-full hover:bg-black hover:text-white transition-colors duration-300"
+                    >
+                      新しいお問い合わせ
+                    </button>
+                  </div>
+                ) : (
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="space-y-2">
                     <label htmlFor="contact-name" className="text-sm font-bold text-black">お名前</label>
                     <input
@@ -113,7 +152,7 @@ export default function ContactPage() {
                       <option value="recruit">採用について</option>
                       <option value="press">広報・取材・登壇について</option>
                       <option value="ad">広告・宣伝について</option>
-                      <option value="partnership">提携・パートナーに関するご相談について</option>
+                      <option value="partnership">���携・パートナーに関するご相談について</option>
                       <option value="other">その他</option>
                     </select>
                   </div>
@@ -140,15 +179,27 @@ export default function ContactPage() {
                       {"をご確認ください。"}
                     </span>
                   </div>
+                  {submitStatus === 'error' && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-600">
+                      <p className="font-bold mb-2">{errorMessage}</p>
+                      {debugInfo && (
+                        <pre className="mt-2 text-xs bg-red-100 p-2 rounded overflow-x-auto whitespace-pre-wrap">
+                          Debug: {debugInfo}
+                        </pre>
+                      )}
+                    </div>
+                  )}
                   <div className="flex justify-center pt-4">
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center px-12 py-3 border-2 border-black bg-white text-black font-bold text-base rounded-full hover:bg-black hover:text-white transition-colors duration-300"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center justify-center px-12 py-3 border-2 border-black bg-white text-black font-bold text-base rounded-full hover:bg-black hover:text-white transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Send
+                      {isSubmitting ? '送信中...' : 'Send'}
                     </button>
                   </div>
                 </form>
+                )}
               </div>
               </ScrollReveal>
             </div>

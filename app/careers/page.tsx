@@ -138,8 +138,65 @@ export default function CareersPage() {
   const [expandedJob, setExpandedJob] = useState<string | null>(null)
   const [applyingJob, setApplyingJob] = useState<string | null>(null)
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const [resumeFileName, setResumeFileName] = useState<string | null>(null)
-  const [otherFileName, setOtherFileName] = useState<string | null>(null)
+  const [resumeFile, setResumeFile] = useState<File | null>(null)
+  const [otherFile, setOtherFile] = useState<File | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [debugInfo, setDebugInfo] = useState<string>('')
+
+  const handleApplySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitError('')
+    setDebugInfo('')
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    formData.append('jobTitle', applyingJob || '')
+    
+    // Manually append files from state (for drag & drop support)
+    if (resumeFile) {
+      formData.set('resume', resumeFile)
+    }
+    if (otherFile) {
+      formData.set('otherFile', otherFile)
+    }
+
+    try {
+      const response = await fetch('/api/send/apply', {
+        method: 'POST',
+        body: formData,
+      })
+
+      // Check for non-JSON responses (like Request Entity Too Large)
+      const contentType = response.headers.get('content-type')
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await response.text()
+        setSubmitError('サーバーエラーが発生しました')
+        setDebugInfo(`Status: ${response.status}, Response: ${text.substring(0, 200)}`)
+        return
+      }
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setFormSubmitted(true)
+        setResumeFile(null)
+        setOtherFile(null)
+      } else {
+        setSubmitError(result.error || 'エラーが発生しました')
+        if (result.debug) {
+          const debugStr = typeof result.debug === 'string' ? result.debug : JSON.stringify(result.debug, null, 2)
+          setDebugInfo(debugStr)
+        }
+      }
+    } catch (err) {
+      setSubmitError('ネットワークエラーが発生しました')
+      setDebugInfo(err instanceof Error ? err.message : 'Unknown error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -315,7 +372,7 @@ export default function CareersPage() {
                       <p>
                         {"私たちの社名「Newce」には、"}
                         <br />
-                        {"新しいサービス（New service）を通じて、"}
+                        {"新しいサー��ス（New service）を通じて、"}
                         <br />
                         {"常に人々の話題（News）の中心であり続けるという"}
                         <br />
@@ -680,10 +737,7 @@ export default function CareersPage() {
                 </div>
               ) : (
                 <form
-                  onSubmit={(e) => {
-                    e.preventDefault()
-                    setFormSubmitted(true)
-                  }}
+                  onSubmit={handleApplySubmit}
                   className="max-w-2xl mx-auto bg-white rounded-2xl p-8 md:p-12 space-y-10"
                 >
                   {/* Personal info */}
@@ -693,24 +747,24 @@ export default function CareersPage() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
                           <label htmlFor="firstName" className="block text-sm font-bold text-black mb-1.5">{"姓"}<span className="text-red-500 ml-0.5">*</span></label>
-                          <input id="firstName" type="text" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
+                          <input id="firstName" name="firstName" type="text" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
                         </div>
                         <div>
                           <label htmlFor="lastName" className="block text-sm font-bold text-black mb-1.5">{"名"}<span className="text-red-500 ml-0.5">*</span></label>
-                          <input id="lastName" type="text" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
+                          <input id="lastName" name="lastName" type="text" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
                         </div>
                       </div>
                       <div>
                         <label htmlFor="email" className="block text-sm font-bold text-black mb-1.5">{"メールアドレス"}<span className="text-red-500 ml-0.5">*</span></label>
-                        <input id="email" type="email" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
+                        <input id="email" name="email" type="email" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
                       </div>
                       <div>
                         <label htmlFor="phone" className="block text-sm font-bold text-black mb-1.5">{"電話番号"}<span className="text-red-500 ml-0.5">*</span></label>
-                        <input id="phone" type="tel" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
+                        <input id="phone" name="phone" type="tel" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
                       </div>
                       <div>
                         <label htmlFor="address" className="block text-sm font-bold text-black mb-1.5">{"住所"}<span className="text-gray-400 text-xs ml-1">{"(任意)"}</span></label>
-                        <input id="address" type="text" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
+                        <input id="address" name="address" type="text" className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
                       </div>
                     </div>
                   </div>
@@ -727,58 +781,61 @@ export default function CareersPage() {
                           onDragOver={(e) => e.preventDefault()}
                           onDrop={(e) => {
                             e.preventDefault()
-                            if (e.dataTransfer.files[0]) setResumeFileName(e.dataTransfer.files[0].name)
+                            if (e.dataTransfer.files[0]) setResumeFile(e.dataTransfer.files[0])
                           }}
                         >
-                          {resumeFileName ? (
-                            <span className="text-sm text-black font-bold">{resumeFileName}</span>
+                          {resumeFile ? (
+                            <span className="text-sm text-black font-bold">{resumeFile.name}</span>
                           ) : (
                             <>
                               <svg className="w-8 h-8 text-gray-400 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
-                              <span className="text-sm text-gray-500">{"ファイルを選択するか、ここにドラッグ＆ドロップしてください"}</span>
+                              <span className="text-sm text-gray-500">ファイルを選択するか、ここにドラッグ＆ドロップしてください</span>
                             </>
                           )}
                           <input
                             id="resume"
+                            name="resume"
                             type="file"
                             className="hidden"
-                            required={!resumeFileName}
+                            required={!resumeFile}
                             onChange={(e) => {
-                              if (e.target.files?.[0]) setResumeFileName(e.target.files[0].name)
+                              if (e.target.files?.[0]) setResumeFile(e.target.files[0])
                             }}
                           />
                         </label>
                       </div>
                       <div>
-                        <label className="block text-sm font-bold text-black mb-1.5">{"その他"}<span className="text-gray-400 text-xs ml-1">{"(任意)"}</span></label>
+                        <label className="block text-sm font-bold text-black mb-1.5">その他<span className="text-gray-400 text-xs ml-1">(任意)</span></label>
                         <label
                           htmlFor="otherFile"
                           className="flex flex-col items-center justify-center w-full border-2 border-dashed border-gray-300 rounded-lg py-8 px-4 cursor-pointer hover:border-black transition-colors"
                           onDragOver={(e) => e.preventDefault()}
                           onDrop={(e) => {
                             e.preventDefault()
-                            if (e.dataTransfer.files[0]) setOtherFileName(e.dataTransfer.files[0].name)
+                            if (e.dataTransfer.files[0]) setOtherFile(e.dataTransfer.files[0])
                           }}
                         >
-                          {otherFileName ? (
-                            <span className="text-sm text-black font-bold">{otherFileName}</span>
+                          {otherFile ? (
+                            <span className="text-sm text-black font-bold">{otherFile.name}</span>
                           ) : (
                             <>
                               <svg className="w-8 h-8 text-gray-400 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
-                              <span className="text-sm text-gray-500">{"ファイルを選択するか、ここにドラッグ＆ドロップしてください"}</span>
+                              <span className="text-sm text-gray-500">ファイルを選択するか、ここにドラッグ＆ドロップしてください</span>
                             </>
                           )}
                           <input
                             id="otherFile"
+                            name="otherFile"
                             type="file"
                             className="hidden"
                             onChange={(e) => {
-                              if (e.target.files?.[0]) setOtherFileName(e.target.files[0].name)
+                              if (e.target.files?.[0]) setOtherFile(e.target.files[0])
                             }}
                           />
                         </label>
                       </div>
                     </div>
+                    <p className="text-xs text-gray-500 mt-3">※アップロードするファイルサイズが5MB以下であることを確認して添付してください。</p>
                   </div>
 
                   {/* Details */}
@@ -788,7 +845,7 @@ export default function CareersPage() {
                       <div>
                         <label htmlFor="gender" className="block text-sm font-bold text-black mb-1.5">{"性別をご選択ください"}<span className="text-red-500 ml-0.5">*</span></label>
                         <p className="text-xs text-gray-500 mb-3">{"Newceでは上記の情報をダイバーシティ、インクルーシビティの促進のための統計調査を行なっております。"}</p>
-                        <select id="gender" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent">
+                        <select id="gender" name="gender" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent">
                           <option value="">{"性別を選択してください"}</option>
                           <option value="male">{"男性"}</option>
                           <option value="female">{"女性"}</option>
@@ -799,17 +856,17 @@ export default function CareersPage() {
                       <div>
                         <label htmlFor="referral" className="block text-sm font-bold text-black mb-1.5">{"社員紹介"}<span className="text-red-500 ml-0.5">*</span></label>
                         <p className="text-xs text-gray-500 mb-3">{"Newce社員からのご紹介の場合は、社員名をご記入ください。紹介でない場合は「なし」と入力してください。"}</p>
-                        <input id="referral" type="text" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
+                        <input id="referral" name="referral" type="text" required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" />
                       </div>
                       <div>
                         <label htmlFor="accommodation" className="block text-sm font-bold text-black mb-1.5">{"配慮事項"}<span className="text-gray-400 text-xs ml-1">{"(任意)"}</span></label>
                         <p className="text-xs text-gray-500 mb-3">{"あなたが最高のパフォーマンスを発揮できるよう、会社が知っておくべき情報があれば、お気軽にお知らせください。"}</p>
-                        <textarea id="accommodation" rows={3} className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none" />
+                        <textarea id="accommodation" name="accommodation" rows={3} className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none" />
                       </div>
                       <div>
                         <label htmlFor="links" className="block text-sm font-bold text-black mb-1.5">{"Webサイト / SNS / GitHub"}<span className="text-red-500 ml-0.5">*</span></label>
                         <p className="text-xs text-gray-500 mb-3">{"Webサイト、ソーシャルメディアアカウント、Githubなどを入力してください。何も持っていない場合は「なし」と入力してください。"}</p>
-                        <textarea id="links" rows={3} required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none" />
+                        <textarea id="links" name="links" rows={3} required className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none" />
                       </div>
                     </div>
                   </div>
@@ -829,14 +886,27 @@ export default function CareersPage() {
                     </span>
                   </div>
 
+                  {/* Error message */}
+                  {submitError && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-600">
+                      <p className="font-bold mb-2">{submitError}</p>
+                      {debugInfo && (
+                        <pre className="mt-2 text-xs bg-red-100 p-2 rounded overflow-x-auto whitespace-pre-wrap">
+                          Debug: {debugInfo}
+                        </pre>
+                      )}
+                    </div>
+                  )}
+
                   {/* Submit & Go back */}
                   <div className="flex flex-col items-center gap-4 pt-4">
                     <button
                       type="submit"
-                      className="inline-flex items-center gap-2 border-2 border-black bg-white text-black font-bold text-base px-10 py-3.5 rounded-full hover:bg-black hover:text-white transition-colors"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center gap-2 border-2 border-black bg-white text-black font-bold text-base px-10 py-3.5 rounded-full hover:bg-black hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {"Apply"}
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                      {isSubmitting ? '送信中...' : 'Apply'}
+                      {!isSubmitting && <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>}
                     </button>
                     <button
                       type="button"
