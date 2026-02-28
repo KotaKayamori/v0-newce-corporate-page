@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, type ReactNode } from "react"
+import { useEffect, useRef, useState, type ReactNode } from "react"
 
 interface ScrollRevealProps {
   children: ReactNode
@@ -16,6 +16,7 @@ export default function ScrollReveal({
   direction = "up",
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     const element = ref.current
@@ -26,7 +27,7 @@ export default function ScrollReveal({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              entry.target.classList.add("scroll-reveal-visible")
+              setIsVisible(true)
             }, delay)
             observer.unobserve(entry.target)
           }
@@ -48,7 +49,8 @@ export default function ScrollReveal({
   return (
     <div
       ref={ref}
-      className={`scroll-reveal scroll-reveal-${direction} ${className}`}
+      className={`scroll-reveal scroll-reveal-${direction} ${isVisible ? "scroll-reveal-visible" : ""} ${className}`.trim()}
+      suppressHydrationWarning
     >
       {children}
     </div>
