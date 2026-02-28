@@ -128,12 +128,15 @@ Webサイト / SNS / Github： ${links}
       }, { status: 500 })
     }
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json(
+      { success: true },
+      { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
+    )
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Unknown error'
-    return NextResponse.json({ 
-      error: 'サーバーエラーが発生しました',
-      debug: errorMessage
-    }, { status: 500 })
+    return NextResponse.json(
+      { error: 'サーバーエラーが発生しました', debug: errorMessage },
+      { status: 500, headers: { 'Content-Type': 'application/json; charset=utf-8' } }
+    )
   }
 }
