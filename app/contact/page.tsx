@@ -152,7 +152,7 @@ export default function ContactPage() {
                       <option value="recruit">採用について</option>
                       <option value="press">広報・取材・登壇について</option>
                       <option value="ad">広告・宣伝について</option>
-                      <option value="partnership">���携・パートナーに関するご相談について</option>
+                      <option value="partnership">提携・パートナーに関するご相談について</option>
                       <option value="other">その他</option>
                     </select>
                   </div>
