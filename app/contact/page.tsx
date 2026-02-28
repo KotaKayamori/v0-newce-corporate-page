@@ -136,7 +136,7 @@ export default function ContactPage() {
                     />
                     <span className="text-xs text-black leading-relaxed">
                       {"当社（株式会社Newce）は、お客様より取得する個人情報を、お問い合わせいただいたご質問やご要望へ回答する目的でのみ利用いたします。なお、当社の個人情報保護に関する基本方針については、以下の"}
-                      <Link href="/privacy-policy" target="_blank" className="text-blue-600 underline hover:text-blue-800">{"プライバシーポリシー"}</Link>
+                      <Link href="/privacy-policy" className="text-blue-600 underline hover:text-blue-800">プライバシーポリシー</Link>
                       {"をご確認ください。"}
                     </span>
                   </div>

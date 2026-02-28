@@ -259,7 +259,7 @@ export default function AboutPage() {
                     </div>
                     <div className="py-6 border-b border-gray-200">
                       <p className="font-semibold mb-2">資本金</p>
-                      <p>{"8,016,400円（2026年2月現在、資本準備金を含む）"}</p>
+                      <p>8,016,400円（2026年2月現在、資本準備金を含む）</p>
                     </div>
                     <div className="py-6 border-b border-gray-200">
                       <p className="font-semibold mb-2">設立</p>
