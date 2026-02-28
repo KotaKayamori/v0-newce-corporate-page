@@ -10,13 +10,9 @@ const genderLabels: Record<string, string> = {
 
 export async function POST(request: Request) {
   try {
-    // Check for RESEND_API_KEY
     const apiKey = process.env.RESEND_API_KEY
-    console.log('[v0] RESEND_API_KEY exists:', !!apiKey)
-    console.log('[v0] RESEND_API_KEY length:', apiKey?.length || 0)
     
     if (!apiKey) {
-      console.error('[v0] RESEND_API_KEY is not set in environment variables')
       return NextResponse.json({ 
         error: 'RESEND_API_KEY が設定されていません。環境変数を確認してください。',
         debug: 'RESEND_API_KEY is missing'
@@ -96,29 +92,23 @@ Webサイト / SNS / Github： ${links}
 選考ステータス：[ 未着手 ]（←誰が対応するか決まったら書き込む用）
 担当者メモ：〇〇（←「〇〇の担当者から紹介あり」など、自分用の備忘録）`
 
-    console.log('[v0] Form data received:', { lastName, firstName, email, phone, jobTitle })
-    console.log('[v0] Sending application email via Resend...')
-
-    const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: 'kota.kayamori@newce.co.jp',
+    const { error } = await resend.emails.send({
+      from: 'contact@newce.co.jp',
+      to: 'info@newce.co.jp',
       subject: `【Apply】新規採用応募：${lastName} ${firstName} 様（${genderLabel}）`,
       text: emailBody,
       attachments: attachments.length > 0 ? attachments : undefined,
     })
 
     if (error) {
-      console.error('[v0] Resend API error:', JSON.stringify(error, null, 2))
       return NextResponse.json({ 
         error: 'メール送信に失敗しました',
         debug: error
       }, { status: 500 })
     }
 
-    console.log('[v0] Application email sent successfully:', data)
-    return NextResponse.json({ success: true, data })
+    return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('[v0] API catch error:', error)
     const errorMessage = error instanceof Error ? error.message : 'Unknown error'
     return NextResponse.json({ 
       error: 'サーバーエラーが発生しました',
