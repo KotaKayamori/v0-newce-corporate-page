@@ -37,7 +37,7 @@ export default function RecruitPage() {
             <div className="max-w-3xl mx-auto">
               <ScrollReveal>
                 <h1 className="font-bold text-white text-center mb-16 md:mb-20 whitespace-nowrap" style={{ fontSize: "clamp(1.5rem, 6vw, 3rem)" }}>
-                  {"熱狂の渦を、共に生み出す"}
+                  熱狂の渦を、共に生み出す
                 </h1>
               </ScrollReveal>
 
@@ -45,43 +45,43 @@ export default function RecruitPage() {
               <div className="flex justify-center">
                 <div className="inline-block space-y-10 text-sm text-white leading-loose text-left">
                   <p>
-                    {"株式会社Newce（ニュース）の"}
+                    株式会社Newce（ニュース）の
                     <br />
-                    {"社名である「Newce」に込めたのは、"}
+                    社名である「Newce」に込めたのは、
                     <br />
-                    {"次々と新しいサービス（New Service）を創造し、"}
+                    次々と新しいサービス（New Service）を創造し、
                     <br />
-                    {"常に人々の話題（News）として"}
+                    常に人々の話題（News）として
                     <br />
-                    {"中心で輝き続けるという覚悟。"}
+                    中心で輝き続けるという覚悟。
                   </p>
 
                   <p>
-                    {"「熱狂の渦」とは、"}
+                    「熱狂の渦」とは、
                     <br />
-                    {"昨日までどこにもなかった価値を形にして、"}
+                    昨日までどこにもなかった価値を形にして、
                     <br />
-                    {"関わるすべての人を、その物語の「主人公」へと"}
+                    関わるすべての人を、その物語の「主人公」へと
                     <br />
-                    {"アップデートしていくことで生まれていく。"}
+                    アップデートしていくことで生まれていく。
                   </p>
 
                   <p>
-                    {"サービス開発やIP創出を通じて、"}
+                    サービス開発やIP創出を通じて、
                     <br />
-                    {"世界中により良いコンテンツを届けていく。"}
+                    世界中により良いコンテンツを届けていく。
                     <br />
-                    {"みんなで次々と日本を代表する"}
+                    みんなで次々と日本を代表する
                     <br />
-                    {"サービスやコンテンツを生み出していく。"}
+                    サービスやコンテンツを生み出していく。
                     <br />
-                    {"自らの手で 「 次世代のスタンダード 」"}
+                    自らの手で 「 次世代のスタンダード 」
                     <br />
-                    {"を創っていきたい。"}
+                    を創っていきたい。
                     <br />
-                    {"そんな衝動を抱えた仲間を、"}
+                    そんな衝動を抱えた仲間を、
                     <br />
-                    {"私たちは待っています。"}
+                    私たちは待っています。
                   </p>
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function RecruitPage() {
               <div className="mb-20 md:mb-28">
                 <p className="text-base font-bold text-black text-left mb-8">ビジョン</p>
                 <h3 className="font-bold text-black text-center mb-12 whitespace-nowrap" style={{ fontSize: "clamp(1.1rem, 4.2vw, 2.25rem)" }}>
-                  {"サービスを通じて人々の生活を豊かにする"}
+                  サービスを通じて人々の生活を豊かにする
                 </h3>
                 <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
                   <Image
@@ -125,7 +125,7 @@ export default function RecruitPage() {
               <div className="mb-20 md:mb-28">
                 <p className="text-base font-bold text-black text-left mb-8">ミッション</p>
                 <h3 className="font-bold text-black text-center mb-12 whitespace-nowrap" style={{ fontSize: "clamp(1.1rem, 4.2vw, 2.25rem)" }}>
-                  {"世界を変えるコンテンツを創る"}
+                  世界を変えるコンテンツを創る
                 </h3>
                 <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
                   <Image
@@ -146,40 +146,40 @@ export default function RecruitPage() {
                   {/* Value 1 */}
                   <div className="bg-white rounded-2xl p-8 md:p-10">
                     <h4 className="text-lg md:text-xl font-bold text-black mb-4">
-                      {"Ownership｜「自分」が起点。"}
+                      Ownership｜「自分」が起点。
                     </h4>
                     <p className="text-sm text-black leading-relaxed">
-                      {"Newceで働くすべてのメンバーに求めるのは、圧倒的な当事者意識です。自らが事業の、そして組織のオーナーであるというアントレプレナーシップ意識を持つ。日頃から自らが起点となり動くことで、次々と押し寄せる「修羅場」を乗り越え、市場を牽引する経営人材へと成長し続ける。その個の強さが、組織を強くすると考えています。"}
+                      Newceで働くすべてのメンバーに求めるのは、圧倒的な当事者意識です。自らが事業の、そして組織のオーナーであるというアントレプレナーシップ意識を持つ。日頃から自らが起点となり動くことで、次々と押し寄せる「修羅場」を乗り越え、市場を牽引する経営人材へと成長し続ける。その個の強さが、組織を強くすると考えています。
                     </p>
                   </div>
 
                   {/* Value 2 */}
                   <div className="bg-white rounded-2xl p-8 md:p-10">
                     <h4 className="text-lg md:text-xl font-bold text-black mb-4">
-                      {"Challenge｜泥臭く、最速で、やり抜く。"}
+                      Challenge｜泥臭く、最速で、やり抜く。
                     </h4>
                     <p className="text-sm text-black leading-relaxed">
-                      {"MissionやVisionの実現に、正解はありません。だからこそ、自ら考え、スピード感を持って一歩目を踏み出す。たとえスマートにいかなくても、泥臭く最後までやり抜き、目に見える「成果」へと繋げる。その挑戦へのプロセスこそが、世界を変える唯一の道です。"}
+                      MissionやVisionの実現に、正解はありません。だからこそ、自ら考え、スピード感を持って一歩目を踏み出す。たとえスマートにいかなくても、泥臭く最後までやり抜き、目に見える「成果」へと繋げる。その挑戦へのプロセスこそが、世界を変える唯一の道です。
                     </p>
                   </div>
 
                   {/* Value 3 */}
                   <div className="bg-white rounded-2xl p-8 md:p-10">
                     <h4 className="text-lg md:text-xl font-bold text-black mb-4">
-                      {"Update｜昨日までの正解を、疑え。"}
+                      Update｜昨日までの正解を、疑え。
                     </h4>
                     <p className="text-sm text-black leading-relaxed">
-                      {"人々のライフスタイルをアップデートするには、まず自分たちが変わり続けなければなりません。既存の枠組みや成功体験に固執せず、常に「もっと面白くできないか」を問い続ける。自らをアップデートし続ける姿勢が、昨日までなかった価値を形にします。"}
+                      人々のライフスタイルをアップデートするには、まず自分たちが変わり続けなければなりません。既存の枠組みや成功体験に固執せず、常に「もっと面白くできないか」を問い続ける。自らをアップデートし続ける姿勢が、昨日までなかった価値を形にします。
                     </p>
                   </div>
 
                   {/* Value 4 */}
                   <div className="bg-white rounded-2xl p-8 md:p-10">
                     <h4 className="text-lg md:text-xl font-bold text-black mb-4">
-                      {"Center of News｜話題の中心を、射抜け。"}
+                      Center of News｜話題の中心を、射抜け。
                     </h4>
                     <p className="text-sm text-black leading-relaxed">
-                      {"私たちは、ただ創る会社ではありません。「世の中がどう動くか」に常に敏感であれ。自分たちが生み出すものが、誰かの会話の種になり、社会のポジティブなニュースになるか。常に話題の中心を狙い、熱狂の渦を広げる仕掛け人としてのプロ意識を持ちます。"}
+                      私たちは、ただ創る会社ではありません。「世の中がどう動くか」に常に敏感であれ。自分たちが生み出すものが、誰かの会話の種になり、社会のポジティブなニュースになるか。常に話題の中心を狙い、熱狂の渦を広げる仕掛け人としてのプロ意識を持ちます。
                     </p>
                   </div>
                 </div>
@@ -219,12 +219,12 @@ export default function RecruitPage() {
                     />
                   </div>
                   <p className="text-sm md:text-base font-bold text-black mb-2">
-                    {"「ミセクル（Misecle）｜ショート動画型グルメ予約サービス」のブラウザ版を公開しました。"}
+                    「ミセクル（Misecle）｜ショート動画型グルメ予約サービス」のブラウザ版を公開しました。
                   </p>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    {"「ミセクル（Misecle）」は、ショート動画を活用してお店の魅力をリアルに体験できる新しいグルメ予約体験を提供します。従来の写真やテキストだけの情報では伝わりづらかった「店内の雰囲気」「料理の臨場感」などを、動画でわかりやすくユーザーへお届け。気になるお店は、アプリ上から直接飲食店を予約できます。現在、ブラウザ版でもサービスを公開中です。詳細は"}
-                    <a href="https://app.newce.co.jp" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{"こちら"}</a>
-                    {"をご覧ください。"}
+                    「ミセクル（Misecle）」は、ショート動画を活用してお店の魅力をリアルに体験できる新しいグルメ予約体験を提供します。従来の写真やテキストだけの情報では伝わりづらかった「店内の雰囲気」「料理の臨場感」などを、動画でわかりやすくユーザーへお届け。気になるお店は、アプリ上から直接飲食店を予約できます。現在、ブラウザ版でもサービスを公開中です。詳細は
+                    <a href="https://app.newce.co.jp" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">こちら</a>
+                    をご覧ください。
                   </p>
                 </div>
 
@@ -242,12 +242,12 @@ export default function RecruitPage() {
                     />
                   </div>
                   <p className="text-sm md:text-base font-bold text-black mb-2">
-                    {"「Misecle（ミセクル）｜ショート動画型グルメ予約サービス」のサービスサイトを公開しました。"}
+                    「Misecle（ミセクル）｜ショート動画型グルメ予約サービス」のサービスサイトを公開しました。
                   </p>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    {"ショート動画型グルメ予約サービス「Misecle（ミセクル）」のサービスサイトを公開しました。ショート動画を通じて、飲食店の「店内の雰囲気」「料理の臨場感」などを直感的にチェックし、そのまま動画上から気になる飲食店を直接予約できるサービスです。 現在、一般ユーザー向けのサービスサイトを公開中です。詳細は"}
-                    <a href="https://service.newce.co.jp" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{"こちら"}</a>
-                    {"からご覧ください。"}
+                    ショート動画型グルメ予約サービス「Misecle（ミセクル）」のサービスサイトを公開しました。ショート動画を通じて、飲食店の「店内の雰囲気」「料理の臨場感」などを直感的にチェックし、そのまま動画上から気になる飲食店を直接予約できるサービスです。 現在、一般ユーザー向けのサービスサイトを公開中です。詳細は
+                    <a href="https://service.newce.co.jp" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">こちら</a>
+                    からご覧ください。
                   </p>
                 </div>
 
@@ -265,12 +265,12 @@ export default function RecruitPage() {
                     />
                   </div>
                   <p className="text-sm md:text-base font-bold text-black mb-2">
-                    {"「ミセクル（Misecle）｜ショート動画型のグルメ予約サービス」の店舗様向けLPサイトを公開しました。"}
+                    「ミセクル（Misecle）｜ショート動画型のグルメ予約サービス」の店舗様向けLPサイトを公開しました。
                   </p>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    {"ショート動画型グルメ予約サービス「Misecle（ミセクル）」の店舗向けのランディングページを公開しました。ショート動画を通じて、飲食店の魅力を伝え、ユーザーはアプリ動画内から直接飲食店を予約できます。現在、導入店舗を募集中です。詳細は"}
-                    <a href="https://ad.newce.co.jp" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{"こちら"}</a>
-                    {"からご覧ください。"}
+                    ショート動画型グルメ予約サービス「Misecle（ミセクル）」の店舗向けのランディングページを公開しました。ショート動画を通じて、飲食店の魅力を伝え、ユーザーはアプリ動画内から直接飲食店を予約できます。現在、導入店舗を募集中です。詳細は
+                    <a href="https://ad.newce.co.jp" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">こちら</a>
+                    からご覧ください。
                   </p>
                 </div>
               </div>
@@ -310,7 +310,7 @@ export default function RecruitPage() {
                 <ScrollReveal delay={300}>
                 <div className="w-full flex flex-col">
                   {/* Category: Product & Creative */}
-                  <p className="text-xs font-bold text-gray-500 mb-4">{"【 Product & Creative 】"}</p>
+                  <p className="text-xs font-bold text-gray-500 mb-4">【 Product &amp; Creative 】</p>
 
                   {/* Job 1 */}
                   <Link href="/careers" className="block group border-b border-gray-200 pb-4 mb-4 px-4 py-3 -mx-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-100">
@@ -361,7 +361,7 @@ export default function RecruitPage() {
                   </Link>
 
                   {/* Category: Business & Marketing */}
-                  <p className="text-xs font-bold text-gray-500 mb-4">{"【 Business & Marketing 】"}</p>
+                  <p className="text-xs font-bold text-gray-500 mb-4">【 Business &amp; Marketing 】</p>
 
                   {/* Job 5 */}
                   <Link href="/careers" className="block group border-b border-gray-200 pb-4 mb-4 px-4 py-3 -mx-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-100">
@@ -388,7 +388,7 @@ export default function RecruitPage() {
                   </Link>
 
                   {/* Category: Corporate & PR */}
-                  <p className="text-xs font-bold text-gray-500 mb-4">{"【 Corporate & PR 】"}</p>
+                  <p className="text-xs font-bold text-gray-500 mb-4">【 Corporate &amp; PR 】</p>
 
                   {/* Job 7 */}
                   <Link href="/careers" className="block group border-b border-gray-200 pb-4 mb-4 px-4 py-3 -mx-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-100">
