@@ -309,7 +309,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    {"iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで��貫して行い、リリース後もユーザーから長く使われるサービスを創ります。"}
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービスを創ります。
                   </p>
                 </div>
                 </ScrollReveal>
