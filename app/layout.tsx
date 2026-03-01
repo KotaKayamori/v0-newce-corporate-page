@@ -9,25 +9,17 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 const yujiSyuku = Yuji_Syuku({ weight: "400", subsets: ["latin"], variable: "--font-yuji-syuku" });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Newce | 株式会社Newce',
+  description: '株式会社Newce（ニュース）の公式サイトです。サービス開発やIP創出を通じて、世界中により良いコンテンツを届けていきます。',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/icon.png',
     apple: '/apple-icon.png',
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Newce',
   },
 }
 
