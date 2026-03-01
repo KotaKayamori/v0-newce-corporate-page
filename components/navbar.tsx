@@ -20,10 +20,10 @@ export default function Navbar() {
     <>
       {/* PC Navigation */}
       <div className="hidden md:block fixed top-0 left-0 right-0 z-50 px-4 pt-5">
-        <div className="w-full flex h-20 items-center justify-between px-8 lg:px-12 bg-white/70 backdrop-blur-md border-2 border-black rounded-full shadow-sm">
+        <div className="w-full flex h-16 items-center justify-between px-8 lg:px-12 bg-white/70 backdrop-blur-md border-2 border-black rounded-full shadow-sm">
           {/* PCナビゲーションの"Newce"ロゴ */}
           <Link href="/" className="flex items-center">
-            <Image src="/images/newce-logo.png" alt="Newce" width={120} height={40} className="h-10 w-auto object-contain" priority />
+            <Image src="/images/newce-logo.png" alt="Newce" width={160} height={56} className="h-14 w-auto object-contain" priority />
           </Link>
           <nav className="flex items-center space-x-8 lg:space-x-12">
             {navItems.map((item) => (
@@ -41,9 +41,9 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-      <header className={`md:hidden fixed top-0 z-50 w-full px-4 pt-4 ${isOpen ? "pointer-events-none" : ""}`}>
-        <div className="flex h-16 items-center justify-between px-5 bg-white/70 backdrop-blur-md border-2 border-black rounded-full shadow-sm pointer-events-auto">
-          <Link href="/" className="flex items-center mt-0 pl-2">
+      <header className={`md:hidden fixed top-0 z-50 w-full px-4 pt-3 ${isOpen ? "pointer-events-none" : ""}`}>
+        <div className="flex h-14 items-center justify-between px-4 bg-white/70 backdrop-blur-md border-2 border-black rounded-full shadow-sm pointer-events-auto">
+          <Link href="/" className="flex items-center">
             <Image src="/images/newce-logo.png" alt="Newce" width={100} height={36} className="h-9 w-auto object-contain" priority />
           </Link>
           <div className="flex">
