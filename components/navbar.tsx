@@ -22,7 +22,7 @@ export default function Navbar() {
         <div className="w-full flex h-20 items-center justify-between px-8 lg:px-12 bg-white/70 backdrop-blur-md border-2 border-black rounded-full shadow-sm">
           {/* PCナビゲーションの"Newce"ロゴ */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-3xl font-bold text-black">Newce</span>
+            <span className="text-3xl font-bold text-black" style={{ fontFamily: 'var(--font-breathing)' }}>Newce</span>
           </Link>
           <nav className="flex items-center space-x-8 lg:space-x-12">
             {navItems.map((item) => (
@@ -43,7 +43,7 @@ export default function Navbar() {
       <header className={`md:hidden fixed top-0 z-50 w-full px-4 pt-4 ${isOpen ? "pointer-events-none" : ""}`}>
         <div className="flex h-16 items-center justify-between px-5 bg-white/70 backdrop-blur-md border-2 border-black rounded-full shadow-sm pointer-events-auto">
           <Link href="/" className="flex items-center space-x-2 mt-0">
-            <span className="text-3xl font-bold text-black pl-2">
+            <span className="text-3xl font-bold text-black pl-2" style={{ fontFamily: 'var(--font-breathing)' }}>
               Newce
             </span>
           </Link>
@@ -77,7 +77,7 @@ export default function Navbar() {
             style={{ animation: "menuFadeInDown 0.4s ease forwards", animationDelay: "0.05s" }}
           >
             <Link href="/" onClick={() => setIsOpen(false)}>
-              <span className="text-4xl font-bold text-black">Newce</span>
+              <span className="text-4xl font-bold text-black" style={{ fontFamily: 'var(--font-breathing)' }}>Newce</span>
             </Link>
           </div>
 
