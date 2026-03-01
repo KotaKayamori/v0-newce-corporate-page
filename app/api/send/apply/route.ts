@@ -5,8 +5,8 @@ import { NextResponse } from 'next/server'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
-// Max file size: 5MB per file
-const MAX_FILE_SIZE = 5 * 1024 * 1024
+// Max file size: 20MB per file
+const MAX_FILE_SIZE = 20 * 1024 * 1024
 
 const genderLabels: Record<string, string> = {
   male: '男性',
@@ -49,13 +49,13 @@ export async function POST(request: Request) {
     // Validate file sizes
     if (resumeFile && resumeFile.size > MAX_FILE_SIZE) {
       return NextResponse.json({ 
-        error: '履歴書のファイルサイズが大きすぎます（5MB以下にしてください）',
+        error: '履歴書のファイルサイズが大きすぎます（20MB以下にしてください）',
         debug: `File size: ${(resumeFile.size / 1024 / 1024).toFixed(2)}MB`
       }, { status: 400 })
     }
     if (otherFile && otherFile.size > MAX_FILE_SIZE) {
       return NextResponse.json({ 
-        error: 'その他のファイルサイズが大きすぎます（5MB以下にしてください）',
+        error: 'その他のファイルサイズが大きすぎます（20MB以下にしてください）',
         debug: `File size: ${(otherFile.size / 1024 / 1024).toFixed(2)}MB`
       }, { status: 400 })
     }
