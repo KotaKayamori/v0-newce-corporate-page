@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 
 export default function Navbar() {
@@ -21,8 +22,8 @@ export default function Navbar() {
       <div className="hidden md:block fixed top-0 left-0 right-0 z-50 px-4 pt-5">
         <div className="w-full flex h-20 items-center justify-between px-8 lg:px-12 bg-white/70 backdrop-blur-md border-2 border-black rounded-full shadow-sm">
           {/* PCナビゲーションの"Newce"ロゴ */}
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-3xl font-bold text-black" style={{ fontFamily: 'var(--font-breathing)' }}>Newce</span>
+          <Link href="/" className="flex items-center">
+            <Image src="/images/newce-logo.png" alt="Newce" width={120} height={40} className="h-10 w-auto object-contain" priority />
           </Link>
           <nav className="flex items-center space-x-8 lg:space-x-12">
             {navItems.map((item) => (
@@ -42,10 +43,8 @@ export default function Navbar() {
       {/* Mobile Navigation */}
       <header className={`md:hidden fixed top-0 z-50 w-full px-4 pt-4 ${isOpen ? "pointer-events-none" : ""}`}>
         <div className="flex h-16 items-center justify-between px-5 bg-white/70 backdrop-blur-md border-2 border-black rounded-full shadow-sm pointer-events-auto">
-          <Link href="/" className="flex items-center space-x-2 mt-0">
-            <span className="text-3xl font-bold text-black pl-2" style={{ fontFamily: 'var(--font-breathing)' }}>
-              Newce
-            </span>
+          <Link href="/" className="flex items-center mt-0 pl-2">
+            <Image src="/images/newce-logo.png" alt="Newce" width={100} height={36} className="h-9 w-auto object-contain" priority />
           </Link>
           <div className="flex">
             <button
@@ -77,7 +76,7 @@ export default function Navbar() {
             style={{ animation: "menuFadeInDown 0.4s ease forwards", animationDelay: "0.05s" }}
           >
             <Link href="/" onClick={() => setIsOpen(false)}>
-              <span className="text-4xl font-bold text-black" style={{ fontFamily: 'var(--font-breathing)' }}>Newce</span>
+              <Image src="/images/newce-logo.png" alt="Newce" width={140} height={48} className="h-12 w-auto object-contain" />
             </Link>
           </div>
 
