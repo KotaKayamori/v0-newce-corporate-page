@@ -9,9 +9,8 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 const yujiSyuku = Yuji_Syuku({ weight: "400", subsets: ["latin"], variable: "--font-yuji-syuku" });
 
 export const metadata: Metadata = {
-  title: 'Newce | 株式会社Newce',
-  description: '株式会社Newce（ニュース）の公式サイトです。サービス開発やIP創出を通じて、世界中により良いコンテンツを届けていきます。',
-  generator: 'v0.app',
+  title: '株式会社Newce',
+  description: '株式会社Newceの公式ホームページです。Newceのサービス、採用情報などをご紹介しています。',
   icons: {
     icon: '/icon.png',
     apple: '/apple-icon.png',
@@ -20,6 +19,18 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: 'black-translucent',
     title: 'Newce',
+  },
+  openGraph: {
+    title: '株式会社Newce',
+    description: '株式会社Newceの公式ホームページです。Newceのサービス、採用情報などをご紹介しています。',
+    type: 'website',
+    locale: 'ja_JP',
+    siteName: '株式会社Newce',
+  },
+  twitter: {
+    card: 'summary',
+    title: '株式会社Newce',
+    description: '株式会社Newceの公式ホームページです。Newceのサービス、採用情報などをご紹介しています。',
   },
 }
 
