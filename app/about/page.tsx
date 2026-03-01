@@ -209,7 +209,7 @@ export default function AboutPage() {
                   <iframe
                     className="speakerdeck-iframe"
                     frameBorder="0"
-                    src="https://speakerdeck.com/player/ea3ee207d65b4f71b36628136bcfda18?slide=1"
+                    src="https://speakerdeck.com/player/c04f96e6ea424aadaad17aaf175bceb7"
                     title="Newce , Inc.｜カンパニーデック- 会社資料"
                     allowFullScreen
                     style={{
