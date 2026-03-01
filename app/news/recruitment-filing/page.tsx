@@ -104,7 +104,7 @@ export default function RecruitmentFilingArticlePage() {
                   <div className="space-y-2">
                     <p>{"・名称：特定募集情報等提供事業"}</p>
                     <p>{"・届出日：2026年2月19日"}</p>
-                    <p>{"・届出番号：13-特-XXXXXX"}</p>
+                    <p>{"・届出番号：51-募-xxxxxx"}</p>
                     <p>{"・本件に関するお問い合わせ / 苦情相談窓口：support@newce.co.jp"}</p>
                   </div>
                 </div>

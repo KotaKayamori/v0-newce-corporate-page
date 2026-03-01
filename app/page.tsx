@@ -187,7 +187,7 @@ export default function Home() {
                     </div>
                     <div className="py-6">
                       <p className="font-semibold mb-2">届出・許認可</p>
-                      <p>特定募集情報等提供事業　届出済み</p>
+                      <p>特定募集情報等提供事業 （届出番号：51-募-xxxxxx）</p>
                     </div>
                   </div>
                 </div>
@@ -268,7 +268,7 @@ export default function Home() {
                     <div className="mb-10">
                       <div className="flex">
                         <p className="text-lg font-semibold w-40 self-start">届出・許認可</p>
-                        <p className="text-lg">特定募集情報等提供事業　届出済み</p>
+                        <p className="text-lg">特定募集情報等提供事業 （届出番号：51-募-xxxxxx）</p>
                       </div>
                     </div>
                   </div>
@@ -309,7 +309,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービスを創ります。
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営ま��一貫して行い、リリース後もユーザーから長く使われるサービスを創ります。
                   </p>
                 </div>
                 </ScrollReveal>
