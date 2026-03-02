@@ -1,18 +1,19 @@
 "use client"
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import ScrollReveal from "@/components/scroll-reveal"
 
 const allArticles = [
-  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について" },
-  { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ" },
-  { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ" },
-  { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ" },
-  { href: "/news/trial", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ミセクル試験運用の開始について" },
-  { href: "/news/browser-release", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ブラウザ版サービスの提供開始のお知らせ" },
-  { href: "/news/line-account", date: "2025.09.04", year: 2025, category: "お知らせ", title: "株式会社Newceの公式LINEアカウントを開設しました" },
+  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "/images/news/news-placeholder.jpg" },
+  { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ", thumbnail: "/images/news/news-placeholder.jpg" },
+  { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ", thumbnail: "/images/news/news-placeholder.jpg" },
+  { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ", thumbnail: "/images/news/news-placeholder.jpg" },
+  { href: "/news/trial", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ミセクル試験運用の開始について", thumbnail: "/images/news/news-placeholder.jpg" },
+  { href: "/news/browser-release", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ブラウザ版サービスの提供開始のお知らせ", thumbnail: "/images/news/news-placeholder.jpg" },
+  { href: "/news/line-account", date: "2025.09.04", year: 2025, category: "お知らせ", title: "株式会社Newceの公式LINEアカウントを開設しました", thumbnail: "/images/news/news-placeholder.jpg" },
 ]
 
 const categories = ["すべて", "お知らせ", "プレスリリース", "メディア掲載"]
@@ -119,25 +120,40 @@ export default function BlogPage() {
                 </div>
               </ScrollReveal>
 
-              {/* News list in white card */}
+              {/* News list - Card Layout */}
               <ScrollReveal delay={200}>
-              <div className="bg-white rounded-2xl p-6 md:p-10 shadow-sm">
+              <div className="space-y-8">
                 {filtered.length === 0 ? (
-                  <div className="py-12 text-center">
+                  <div className="py-12 text-center bg-white rounded-2xl">
                     <p className="text-sm text-gray-500">該当する記事がありません</p>
                   </div>
                 ) : (
-                  visible.map((article, i) => (
-                    <div key={article.href}>
-                      {i > 0 && <div className="border-b border-gray-200"></div>}
-                      <Link href={article.href} className="block py-5 px-4 -mx-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-100">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">{article.date}</span>
-                          <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">{article.category}</span>
+                  visible.map((article) => (
+                    <Link key={article.href} href={article.href} className="block group">
+                      <div className="bg-white rounded-lg overflow-hidden transition-shadow hover:shadow-md">
+                        {/* Thumbnail */}
+                        <div className="relative w-full aspect-[16/9] bg-gray-200">
+                          <Image
+                            src={article.thumbnail}
+                            alt={article.title}
+                            fill
+                            className="object-cover"
+                          />
                         </div>
-                        <h3 className="text-base md:text-lg font-bold text-black">{article.title}</h3>
-                      </Link>
-                    </div>
+                        {/* Content */}
+                        <div className="p-5 pb-6">
+                          {/* Category Label & Date */}
+                          <div className="flex items-center justify-between mb-4">
+                            <span className="bg-black text-white px-3 py-1 text-sm inline-block">{article.category}</span>
+                            <span className="text-gray-600 text-sm font-medium">{article.date}</span>
+                          </div>
+                          {/* Title */}
+                          <h3 className="text-lg leading-relaxed font-normal text-black line-clamp-2 group-hover:text-gray-600 transition-colors">{article.title}</h3>
+                        </div>
+                        {/* Bottom border */}
+                        <div className="border-b-2 border-black"></div>
+                      </div>
+                    </Link>
                   ))
                 )}
               </div>
