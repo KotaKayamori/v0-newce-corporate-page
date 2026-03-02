@@ -122,36 +122,35 @@ export default function BlogPage() {
 
               {/* News list - Card Layout */}
               <ScrollReveal delay={200}>
-              <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {filtered.length === 0 ? (
-                  <div className="py-12 text-center bg-white rounded-2xl">
+                  <div className="col-span-full py-12 text-center bg-white rounded-2xl">
                     <p className="text-sm text-gray-500">該当する記事がありません</p>
                   </div>
                 ) : (
                   visible.map((article) => (
                     <Link key={article.href} href={article.href} className="block group">
-                      <div className="bg-white rounded-lg overflow-hidden transition-shadow hover:shadow-md">
-                        {/* Thumbnail */}
-                        <div className="relative w-full aspect-[16/9] bg-gray-200">
+                      <div className="bg-white overflow-hidden transition-shadow hover:shadow-md h-full flex flex-col">
+                        {/* Thumbnail with overlay label */}
+                        <div className="relative w-full aspect-[16/10] bg-gray-200">
                           <Image
                             src={article.thumbnail}
                             alt={article.title}
                             fill
                             className="object-cover"
                           />
-                        </div>
-                        {/* Content */}
-                        <div className="p-5 pb-6">
-                          {/* Category Label & Date */}
-                          <div className="flex items-center justify-between mb-4">
-                            <span className="bg-black text-white px-3 py-1 text-sm inline-block">{article.category}</span>
-                            <span className="text-gray-600 text-sm font-medium">{article.date}</span>
+                          {/* Category label on image bottom-left */}
+                          <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-3">
+                            <span className="bg-black text-white px-3 py-1 text-xs font-medium">{article.category}</span>
+                            <span className="text-white text-xs font-medium drop-shadow-md">{article.date}</span>
                           </div>
-                          {/* Title */}
-                          <h3 className="text-lg leading-relaxed font-normal text-black line-clamp-2 group-hover:text-gray-600 transition-colors">{article.title}</h3>
+                        </div>
+                        {/* Title */}
+                        <div className="p-4 flex-1">
+                          <h3 className="text-base leading-relaxed font-medium text-black line-clamp-2 group-hover:text-gray-600 transition-colors">{article.title}</h3>
                         </div>
                         {/* Bottom border */}
-                        <div className="border-b-2 border-black"></div>
+                        <div className="border-b-2 border-black mx-4 mb-4"></div>
                       </div>
                     </Link>
                   ))
