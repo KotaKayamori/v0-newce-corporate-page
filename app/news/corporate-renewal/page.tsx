@@ -75,10 +75,10 @@ export default function CorporateRenewalArticlePage() {
               {/* Hero Image */}
               <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg mb-10">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%95%E3%82%9A%E3%83%AC%E3%82%B9%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E7%94%BB%E5%83%8F-pBzqkfRVcNcO92jC8IOZwd6tajhcfo.png"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png"
                   alt="コーポレートサイトリニューアル"
                   fill
-                  className="object-cover"
+                  className="object-contain bg-white"
                 />
               </div>
 

@@ -1,18 +1,19 @@
 "use client"
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import ScrollReveal from "@/components/scroll-reveal"
 
 const allArticles = [
-  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について" },
-  { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ" },
-  { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ" },
-  { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ" },
-  { href: "/news/trial", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ミセクル試験運用の開始について" },
-  { href: "/news/browser-release", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ブラウザ版サービスの提供開始のお知らせ" },
-  { href: "/news/line-account", date: "2025.09.04", year: 2025, category: "お知らせ", title: "株式会社Newceの公式LINEアカウントを開設しました" },
+  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "/images/news/recruitment-filing.jpg" },
+  { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png" },
+  { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-5O1GQnTYqA36chdwAqt55F3WEm2Gh8.webp" },
+  { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-sz8DwuoplsY6JCcBh2GC6L2cVgOZrH.webp" },
+  { href: "/news/trial", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ミセクル試験運用の開始について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_c1849dfb9ecbb3f5a0607ecde050558e-ImNgaXwZZCz5HjcKTLP7hDy0OELtKo.webp" },
+  { href: "/news/browser-release", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ブラウザ版サービスの提供開始のお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_728ed3f79bbdb61f6a8cc5c4e05de4af-rmqpPND8HO7fYJNwx6yONMKvgnBIfR.webp" },
+  { href: "/news/line-account", date: "2025.09.04", year: 2025, category: "お知らせ", title: "株式会社Newceの公式LINEアカウントを開設しました", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_40912932b3f605d687acce3960d8ab24-BQ9x8zPtnxdbqWNoz3LR3soSqwuRNu.webp" },
 ]
 
 const categories = ["すべて", "お知らせ", "プレスリリース", "メディア掲載"]
@@ -119,25 +120,38 @@ export default function BlogPage() {
                 </div>
               </ScrollReveal>
 
-              {/* News list in white card */}
+              {/* News list - Card Layout (Timee style) */}
               <ScrollReveal delay={200}>
-              <div className="bg-white rounded-2xl p-6 md:p-10 shadow-sm">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
                 {filtered.length === 0 ? (
-                  <div className="py-12 text-center">
+                  <div className="col-span-full py-12 text-center">
                     <p className="text-sm text-gray-500">該当する記事がありません</p>
                   </div>
                 ) : (
-                  visible.map((article, i) => (
-                    <div key={article.href}>
-                      {i > 0 && <div className="border-b border-gray-200"></div>}
-                      <Link href={article.href} className="block py-5 px-4 -mx-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-100">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">{article.date}</span>
-                          <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">{article.category}</span>
+                  visible.map((article) => (
+                    <Link key={article.href} href={article.href} className="block group">
+                      <div className="h-full flex flex-col">
+                        {/* 1. Thumbnail - 16:9 aspect ratio (aspect-video), full width */}
+                        <div className="w-full aspect-video bg-gray-50 overflow-hidden">
+                          <img
+                            src={article.thumbnail}
+                            alt={article.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
                         </div>
-                        <h3 className="text-base md:text-lg font-bold text-black">{article.title}</h3>
-                      </Link>
-                    </div>
+                        {/* 2. Category (left) & Date (right) - directly below image */}
+                        <div className="flex items-center justify-between pt-6">
+                          <span className="bg-black text-white px-4 py-2 text-sm font-bold">{article.category}</span>
+                          <span className="text-gray-500 text-sm font-medium">{article.date}</span>
+                        </div>
+                        {/* 3. Title - text-lg with good line height */}
+                        <div className="pt-5 pb-6 flex-1">
+                          <h3 className="text-lg leading-loose text-black line-clamp-3 group-hover:text-gray-600 transition-colors">{article.title}</h3>
+                        </div>
+                        {/* 4. Black underline - thick border-b-2 */}
+                        <div className="border-b-2 border-black"></div>
+                      </div>
+                    </Link>
                   ))
                 )}
               </div>

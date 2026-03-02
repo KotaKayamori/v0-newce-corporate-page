@@ -298,7 +298,7 @@ export default function AboutPage() {
                     </div>
                     <div className="py-6">
                       <p className="font-semibold mb-2">届出・許認可</p>
-                      <p>特定募集情報等提供事業　届出済み</p>
+                      <p>特定募集情報等提供事業 （届出番号：51-募-xxxxxx）</p>
                     </div>
                   </div>
                 </div>
@@ -379,7 +379,7 @@ export default function AboutPage() {
                     <div className="mb-10">
                       <div className="flex">
                         <p className="text-lg font-semibold w-40 self-start">届出・許認可</p>
-                        <p className="text-lg">特定募集情報等提供事業　届出済み</p>
+                        <p className="text-lg">特定募集情報等提供事業 （届出番号：51-募-xxxxxx）</p>
                       </div>
                     </div>
                   </div>

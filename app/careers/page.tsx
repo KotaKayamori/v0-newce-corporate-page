@@ -533,7 +533,7 @@ export default function CareersPage() {
               <ScrollReveal delay={100}>
                 <h3 className="text-xl md:text-2xl font-bold text-black mb-6">{"Newce's Values"}</h3>
                 <p className="text-sm md:text-base text-black leading-relaxed mb-12">
-                  {"Newceはミッション、ビジョンを達成するための行動指標として、4つのバリューを定めています。採用基準から、人事評価、日々の業務、そして経営判断まで、Newceに関わる全ての意思決定はこの4つのバリューをもとに行われています。個人や組織に共通のバリューがあることにより、意思決定を加速させることができます。"}
+                  Newceはミッション、ビジョンを達成するための行動指標として、4つのバリューを定めています。採用基準から、人事評価、日々の業務、そして経営判断まで、Newceに関わる全ての意思決定はこの4つのバリューをもとに行われています。個人や組織に共通のバリューがあることにより、意思決定を加速させることができます。
                 </p>
               </ScrollReveal>
 
@@ -820,7 +820,7 @@ export default function CareersPage() {
                           ) : (
                             <>
                               <svg className="w-8 h-8 text-gray-400 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
-                              <span className="text-sm text-gray-500">ファイルを選択するか、ここにドラッグ＆ド��ップしてください</span>
+                              <span className="text-sm text-gray-500">ファイルを選択するか、ここにドラッグ＆ドロップしてください</span>
                             </>
                           )}
                           <input
@@ -835,7 +835,7 @@ export default function CareersPage() {
                         </label>
                       </div>
                     </div>
-                    <p className="text-xs text-gray-500 mt-3">※アップロードするファイルサイズが5MB以下であることを確認して添付してください。</p>
+                    <p className="text-xs text-gray-500 mt-3">※アップロードするファイルサイズが20MB以下であることを確認して添付してください。</p>
                   </div>
 
                   {/* Details */}

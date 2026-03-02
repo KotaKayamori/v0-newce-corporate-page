@@ -187,7 +187,7 @@ export default function Home() {
                     </div>
                     <div className="py-6">
                       <p className="font-semibold mb-2">届出・許認可</p>
-                      <p>特定募集情報等提供事業　届出済み</p>
+                      <p>特定募集情報等提供事業 （届出番号：51-募-xxxxxx）</p>
                     </div>
                   </div>
                 </div>
@@ -268,7 +268,7 @@ export default function Home() {
                     <div className="mb-10">
                       <div className="flex">
                         <p className="text-lg font-semibold w-40 self-start">届出・許認可</p>
-                        <p className="text-lg">特定募集情報等提供事業　届出済み</p>
+                        <p className="text-lg">特定募集情報等提供事業 （届出番号：51-募-xxxxxx）</p>
                       </div>
                     </div>
                   </div>
@@ -436,82 +436,119 @@ export default function Home() {
         {/* News Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
           <div className="container px-4 md:px-6">
-            <div className="w-full max-w-4xl mx-auto">
+            <div className="w-full max-w-6xl mx-auto">
               <ScrollReveal>
-                <div className="ml-2 md:-ml-8">
+                <div className="ml-2 md:ml-0">
                   <h2 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none text-left">News</h2>
                   <p className="text-base text-black text-left mt-2 font-bold">お知らせ</p>
                 </div>
               </ScrollReveal>
 
-              <div className="h-16 md:h-20"></div>
+              <div className="h-12 md:h-16"></div>
 
-              {/* News list in white card */}
+              {/* News cards - horizontal scroll (matching Service section layout) */}
               <ScrollReveal delay={200}>
-              <div className="bg-white rounded-2xl p-6 md:p-10 shadow-sm">
-                {/* Item 0 - NEWEST */}
-                <Link href="/news/recruitment-filing" className="block py-5 px-4 -mx-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-100">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">2026.02.21</span>
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">お知らせ</span>
+              <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-[calc((100vw-280px)/2)] md:mx-0 md:px-0" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+                {/* Card 1 - Newest */}
+                <Link href="/news/recruitment-filing" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
+                      <img src="/images/news/recruitment-filing.jpg" alt="特定募集情報等提供事業" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
+                      <span className="text-black text-sm">2026.02.21</span>
+                    </div>
+                    <div className="pt-3 flex-1">
+                      <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">特定募集情報等提供事業の届出完了について</h3>
+                    </div>
                   </div>
-                  <h3 className="text-base md:text-lg font-bold text-black">特定募集情報等提供事業の届出完了について</h3>
                 </Link>
-                <div className="border-b border-gray-200"></div>
 
-                {/* Item 1 */}
-                <Link href="/news/corporate-renewal" className="block py-5 px-4 -mx-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-100">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">2026.02.20</span>
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">お知らせ</span>
+                {/* Card 2 */}
+                <Link href="/news/corporate-renewal" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-white">
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png" alt="コーポレートサイトリニューアル" className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
+                      <span className="text-black text-sm">2026.02.20</span>
+                    </div>
+                    <div className="pt-3 flex-1">
+                      <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">コーポレートサイトのリニューアルに関するお知らせ</h3>
+                    </div>
                   </div>
-                  <h3 className="text-base md:text-lg font-bold text-black">コーポレートサイトのリニューアルに関するお知らせ</h3>
                 </Link>
-                <div className="border-b border-gray-200"></div>
 
-                {/* Item 2 */}
-                <Link href="/news/service-site" className="block py-5 px-4 -mx-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-100">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">2025.12.11</span>
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">お知らせ</span>
+                {/* Card 3 */}
+                <Link href="/news/service-site" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-5O1GQnTYqA36chdwAqt55F3WEm2Gh8.webp" alt="サービスサイト公開" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
+                      <span className="text-black text-sm">2025.12.11</span>
+                    </div>
+                    <div className="pt-3 flex-1">
+                      <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">サービスサイトの公開に関するお知らせ</h3>
+                    </div>
                   </div>
-                  <h3 className="text-base md:text-lg font-bold text-black">サービスサイトの公開に関するお知らせ</h3>
                 </Link>
-                <div className="border-b border-gray-200"></div>
 
-                {/* Item 3 */}
-                <Link href="/news/lp-site" className="block py-5 px-4 -mx-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-100">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">2025.12.02</span>
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">お知らせ</span>
+                {/* Card 4 */}
+                <Link href="/news/lp-site" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-sz8DwuoplsY6JCcBh2GC6L2cVgOZrH.webp" alt="店舗様向けLP" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
+                      <span className="text-black text-sm">2025.12.02</span>
+                    </div>
+                    <div className="pt-3 flex-1">
+                      <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">店舗様向けLPサイトの公開に関するお知らせ</h3>
+                    </div>
                   </div>
-                  <h3 className="text-base md:text-lg font-bold text-black">店舗様向けLPサイトの公開に関するお知らせ</h3>
                 </Link>
-                <div className="border-b border-gray-200"></div>
 
-                {/* Item 4 */}
-                <Link href="/news/trial" className="block py-5 px-4 -mx-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-100">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">2025.11.21</span>
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">プレスリリース</span>
+                {/* Card 5 */}
+                <Link href="/news/trial" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_c1849dfb9ecbb3f5a0607ecde050558e-ImNgaXwZZCz5HjcKTLP7hDy0OELtKo.webp" alt="ミセクル試験運用" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">プレスリリース</span>
+                      <span className="text-black text-sm">2025.11.21</span>
+                    </div>
+                    <div className="pt-3 flex-1">
+                      <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">ミセクル試験運用の開始について</h3>
+                    </div>
                   </div>
-                  <h3 className="text-base md:text-lg font-bold text-black">ミセクル試験運用の開始について</h3>
                 </Link>
-                <div className="border-b border-gray-200"></div>
 
-                {/* Item 5 */}
-                <Link href="/news/browser-release" className="block py-5 px-4 -mx-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-100">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">2025.11.21</span>
-                    <span className="inline-block bg-gray-100 text-gray-500 text-xs font-medium px-3 py-1 rounded">プレスリリース</span>
+                {/* Card 6 */}
+                <Link href="/news/browser-release" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_728ed3f79bbdb61f6a8cc5c4e05de4af-rmqpPND8HO7fYJNwx6yONMKvgnBIfR.webp" alt="ブラウザ版サービス" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">プレスリリース</span>
+                      <span className="text-black text-sm">2025.11.21</span>
+                    </div>
+                    <div className="pt-3 flex-1">
+                      <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">ブラウザ版サービスの提供開始のお知らせ</h3>
+                    </div>
                   </div>
-                  <h3 className="text-base md:text-lg font-bold text-black">ブラウザ版サービスの提供開始のお知らせ</h3>
                 </Link>
               </div>
               </ScrollReveal>
 
               <ScrollReveal delay={300}>
-                <div className="mt-10 flex justify-center">
+                <div className="mt-12 flex justify-center">
                   <Link
                     href="/news"
                     className="inline-flex items-center justify-center px-8 py-3 border border-black bg-white text-black font-medium text-base rounded-full hover:bg-black hover:text-white transition-colors duration-300"
