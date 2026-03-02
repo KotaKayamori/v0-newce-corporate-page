@@ -7,13 +7,13 @@ import Footer from "@/components/footer"
 import ScrollReveal from "@/components/scroll-reveal"
 
 const allArticles = [
-  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "https://placehold.co/640x400/f5f5f5/999999?text=News" },
-  { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ", thumbnail: "https://placehold.co/640x400/f5f5f5/999999?text=News" },
-  { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ", thumbnail: "https://placehold.co/640x400/f5f5f5/999999?text=News" },
-  { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ", thumbnail: "https://placehold.co/640x400/f5f5f5/999999?text=News" },
-  { href: "/news/trial", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ミセクル試験運用の開始について", thumbnail: "https://placehold.co/640x400/f5f5f5/999999?text=News" },
-  { href: "/news/browser-release", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ブラウザ版サービスの提供開始のお知らせ", thumbnail: "https://placehold.co/640x400/f5f5f5/999999?text=News" },
-  { href: "/news/line-account", date: "2025.09.04", year: 2025, category: "お知らせ", title: "株式会社Newceの公式LINEアカウントを開設しました", thumbnail: "https://placehold.co/640x400/f5f5f5/999999?text=News" },
+  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "/images/news/recruitment-filing.jpg" },
+  { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%95%E3%82%9A%E3%83%AC%E3%82%B9%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E7%94%BB%E5%83%8F-pBzqkfRVcNcO92jC8IOZwd6tajhcfo.png" },
+  { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-5O1GQnTYqA36chdwAqt55F3WEm2Gh8.webp" },
+  { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-sz8DwuoplsY6JCcBh2GC6L2cVgOZrH.webp" },
+  { href: "/news/trial", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ミセクル試験運用の開始について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_c1849dfb9ecbb3f5a0607ecde050558e-ImNgaXwZZCz5HjcKTLP7hDy0OELtKo.webp" },
+  { href: "/news/browser-release", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ブラウザ版サービスの提供開始のお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_728ed3f79bbdb61f6a8cc5c4e05de4af-rmqpPND8HO7fYJNwx6yONMKvgnBIfR.webp" },
+  { href: "/news/line-account", date: "2025.09.04", year: 2025, category: "お知らせ", title: "株式会社Newceの公式LINEアカウントを開設しました", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_40912932b3f605d687acce3960d8ab24-BQ9x8zPtnxdbqWNoz3LR3soSqwuRNu.webp" },
 ]
 
 const categories = ["すべて", "お知らせ", "プレスリリース", "メディア掲載"]
@@ -120,36 +120,36 @@ export default function BlogPage() {
                 </div>
               </ScrollReveal>
 
-              {/* News list - Card Layout */}
+              {/* News list - Card Layout (Timee style) */}
               <ScrollReveal delay={200}>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
                 {filtered.length === 0 ? (
-                  <div className="col-span-full py-12 text-center bg-white rounded-2xl">
+                  <div className="col-span-full py-12 text-center">
                     <p className="text-sm text-gray-500">該当する記事がありません</p>
                   </div>
                 ) : (
                   visible.map((article) => (
                     <Link key={article.href} href={article.href} className="block group">
-                      <div className="bg-white overflow-hidden transition-shadow hover:shadow-md h-full flex flex-col">
-                        {/* 1. Thumbnail */}
-                        <div className="w-full aspect-[16/10] bg-gray-100 overflow-hidden">
+                      <div className="h-full flex flex-col">
+                        {/* 1. Thumbnail - 16:9 aspect ratio, full width */}
+                        <div className="w-full aspect-[16/9] bg-gray-100 overflow-hidden rounded-sm">
                           <img
                             src={article.thumbnail}
                             alt={article.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                         </div>
-                        {/* 2. Category (left) & Date (right) */}
-                        <div className="flex items-center justify-between px-4 pt-4">
-                          <span className="bg-black text-white px-3 py-1 text-xs font-medium">{article.category}</span>
-                          <span className="text-gray-600 text-sm font-medium">{article.date}</span>
+                        {/* 2. Category (left) & Date (right) - directly below image */}
+                        <div className="flex items-center justify-between pt-5">
+                          <span className="bg-black text-white px-4 py-1.5 text-xs font-bold">{article.category}</span>
+                          <span className="text-gray-500 text-sm">{article.date}</span>
                         </div>
-                        {/* 3. Title */}
-                        <div className="px-4 pt-3 pb-4 flex-1">
-                          <h3 className="text-base leading-relaxed font-medium text-black line-clamp-2 group-hover:text-gray-600 transition-colors">{article.title}</h3>
+                        {/* 3. Title - with good spacing */}
+                        <div className="pt-4 pb-5 flex-1">
+                          <h3 className="text-base leading-relaxed text-black line-clamp-3 group-hover:text-gray-600 transition-colors">{article.title}</h3>
                         </div>
-                        {/* 4. Black underline */}
-                        <div className="border-b-2 border-black mx-4 mb-4"></div>
+                        {/* 4. Black underline - thick border */}
+                        <div className="border-b-[3px] border-black"></div>
                       </div>
                     </Link>
                   ))
