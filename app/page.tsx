@@ -309,7 +309,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービスを創ります。
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ��を創ります。
                   </p>
                 </div>
                 </ScrollReveal>
@@ -446,108 +446,102 @@ export default function Home() {
 
               <div className="h-12 md:h-16"></div>
 
-              {/* News cards - horizontal scroll */}
+              {/* News cards - horizontal scroll (matching Service section layout) */}
               <ScrollReveal delay={200}>
-              <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 md:-mx-0 md:px-0">
+              <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-[calc((100vw-280px)/2)] md:mx-0 md:px-0" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
                 {/* Card 1 - Newest */}
-                <Link href="/news/recruitment-filing" className="block group flex-shrink-0 w-[300px] md:w-[340px]">
-                  <div className="h-full flex flex-col bg-white">
-                    <div className="w-full aspect-video bg-gray-50 overflow-hidden">
+                <Link href="/news/recruitment-filing" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
                       <img src="/images/news/recruitment-filing.jpg" alt="特定募集情報等提供事業" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
-                    <div className="flex items-center justify-between pt-5 px-1">
-                      <span className="bg-black text-white px-3 py-1.5 text-xs font-bold">お知らせ</span>
-                      <span className="text-gray-500 text-sm">2026.02.21</span>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
+                      <span className="text-black text-sm">2026.02.21</span>
                     </div>
-                    <div className="pt-4 pb-5 px-1 flex-1">
+                    <div className="pt-3 flex-1">
                       <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">特定募集情報等提供事業の届出完了について</h3>
                     </div>
-                    <div className="border-b-2 border-black"></div>
                   </div>
                 </Link>
 
                 {/* Card 2 */}
-                <Link href="/news/corporate-renewal" className="block group flex-shrink-0 w-[300px] md:w-[340px]">
-                  <div className="h-full flex flex-col bg-white">
-                    <div className="w-full aspect-video bg-gray-50 overflow-hidden">
+                <Link href="/news/corporate-renewal" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-white">
                       <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png" alt="コーポレートサイトリニューアル" className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300" />
                     </div>
-                    <div className="flex items-center justify-between pt-5 px-1">
-                      <span className="bg-black text-white px-3 py-1.5 text-xs font-bold">お知らせ</span>
-                      <span className="text-gray-500 text-sm">2026.02.20</span>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
+                      <span className="text-black text-sm">2026.02.20</span>
                     </div>
-                    <div className="pt-4 pb-5 px-1 flex-1">
+                    <div className="pt-3 flex-1">
                       <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">コーポレートサイトのリニューアルに関するお知らせ</h3>
                     </div>
-                    <div className="border-b-2 border-black"></div>
                   </div>
                 </Link>
 
                 {/* Card 3 */}
-                <Link href="/news/service-site" className="block group flex-shrink-0 w-[300px] md:w-[340px]">
-                  <div className="h-full flex flex-col bg-white">
-                    <div className="w-full aspect-video bg-gray-50 overflow-hidden">
+                <Link href="/news/service-site" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
                       <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-5O1GQnTYqA36chdwAqt55F3WEm2Gh8.webp" alt="サービスサイト公開" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
-                    <div className="flex items-center justify-between pt-5 px-1">
-                      <span className="bg-black text-white px-3 py-1.5 text-xs font-bold">お知らせ</span>
-                      <span className="text-gray-500 text-sm">2025.12.11</span>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
+                      <span className="text-black text-sm">2025.12.11</span>
                     </div>
-                    <div className="pt-4 pb-5 px-1 flex-1">
+                    <div className="pt-3 flex-1">
                       <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">サービスサイトの公開に関するお知らせ</h3>
                     </div>
-                    <div className="border-b-2 border-black"></div>
                   </div>
                 </Link>
 
                 {/* Card 4 */}
-                <Link href="/news/lp-site" className="block group flex-shrink-0 w-[300px] md:w-[340px]">
-                  <div className="h-full flex flex-col bg-white">
-                    <div className="w-full aspect-video bg-gray-50 overflow-hidden">
+                <Link href="/news/lp-site" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
                       <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-sz8DwuoplsY6JCcBh2GC6L2cVgOZrH.webp" alt="店舗様向けLP" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
-                    <div className="flex items-center justify-between pt-5 px-1">
-                      <span className="bg-black text-white px-3 py-1.5 text-xs font-bold">お知らせ</span>
-                      <span className="text-gray-500 text-sm">2025.12.02</span>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
+                      <span className="text-black text-sm">2025.12.02</span>
                     </div>
-                    <div className="pt-4 pb-5 px-1 flex-1">
+                    <div className="pt-3 flex-1">
                       <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">店舗様向けLPサイトの公開に関するお知らせ</h3>
                     </div>
-                    <div className="border-b-2 border-black"></div>
                   </div>
                 </Link>
 
                 {/* Card 5 */}
-                <Link href="/news/trial" className="block group flex-shrink-0 w-[300px] md:w-[340px]">
-                  <div className="h-full flex flex-col bg-white">
-                    <div className="w-full aspect-video bg-gray-50 overflow-hidden">
+                <Link href="/news/trial" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
                       <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_c1849dfb9ecbb3f5a0607ecde050558e-ImNgaXwZZCz5HjcKTLP7hDy0OELtKo.webp" alt="ミセクル試験運用" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
-                    <div className="flex items-center justify-between pt-5 px-1">
-                      <span className="bg-black text-white px-3 py-1.5 text-xs font-bold">プレスリリース</span>
-                      <span className="text-gray-500 text-sm">2025.11.21</span>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">プレスリリース</span>
+                      <span className="text-black text-sm">2025.11.21</span>
                     </div>
-                    <div className="pt-4 pb-5 px-1 flex-1">
+                    <div className="pt-3 flex-1">
                       <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">ミセクル試験運用の開始について</h3>
                     </div>
-                    <div className="border-b-2 border-black"></div>
                   </div>
                 </Link>
 
                 {/* Card 6 */}
-                <Link href="/news/browser-release" className="block group flex-shrink-0 w-[300px] md:w-[340px]">
-                  <div className="h-full flex flex-col bg-white">
-                    <div className="w-full aspect-video bg-gray-50 overflow-hidden">
+                <Link href="/news/browser-release" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                  <div className="h-full flex flex-col">
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
                       <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_728ed3f79bbdb61f6a8cc5c4e05de4af-rmqpPND8HO7fYJNwx6yONMKvgnBIfR.webp" alt="ブラウザ版サービス" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
-                    <div className="flex items-center justify-between pt-5 px-1">
-                      <span className="bg-black text-white px-3 py-1.5 text-xs font-bold">プレスリリース</span>
-                      <span className="text-gray-500 text-sm">2025.11.21</span>
+                    <div className="flex items-center justify-between pt-4">
+                      <span className="bg-black text-white px-3 py-1 text-xs font-bold">プレスリリース</span>
+                      <span className="text-black text-sm">2025.11.21</span>
                     </div>
-                    <div className="pt-4 pb-5 px-1 flex-1">
+                    <div className="pt-3 flex-1">
                       <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">ブラウザ版サービスの提供開始のお知らせ</h3>
                     </div>
-                    <div className="border-b-2 border-black"></div>
                   </div>
                 </Link>
               </div>
