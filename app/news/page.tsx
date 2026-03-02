@@ -132,12 +132,13 @@ export default function BlogPage() {
                     <Link key={article.href} href={article.href} className="block group">
                       <div className="bg-white overflow-hidden transition-shadow hover:shadow-md h-full flex flex-col">
                         {/* 1. Thumbnail */}
-                        <div className="relative w-full aspect-[16/10] bg-gray-200">
+                        <div className="relative w-full aspect-[16/10] bg-gray-100 overflow-hidden">
                           <Image
                             src={article.thumbnail}
                             alt={article.title}
                             fill
                             className="object-cover"
+                            unoptimized
                           />
                         </div>
                         {/* 2. Category (left) & Date (right) */}
