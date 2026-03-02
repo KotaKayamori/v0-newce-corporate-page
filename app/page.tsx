@@ -309,7 +309,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ��を創ります。
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ���を創ります。
                   </p>
                 </div>
                 </ScrollReveal>
@@ -446,11 +446,11 @@ export default function Home() {
 
               <div className="h-12 md:h-16"></div>
 
-              {/* News cards - horizontal scroll (matching Service section layout) */}
+              {/* News cards - horizontal scroll (mobile) / Grid (PC) - matching Service section layout */}
               <ScrollReveal delay={200}>
-              <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-[calc((100vw-280px)/2)] md:mx-0 md:px-0" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+              <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 -mx-4 px-[calc((100vw-280px)/2)] md:mx-0 md:px-0 snap-x snap-mandatory md:snap-none scrollbar-hide" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
                 {/* Card 1 - Newest */}
-                <Link href="/news/recruitment-filing" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                <Link href="/news/recruitment-filing" className="block group min-w-[280px] md:min-w-0 snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
                       <img src="/images/news/recruitment-filing.jpg" alt="特定募集情報等提供事業" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -466,7 +466,7 @@ export default function Home() {
                 </Link>
 
                 {/* Card 2 */}
-                <Link href="/news/corporate-renewal" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                <Link href="/news/corporate-renewal" className="block group min-w-[280px] md:min-w-0 snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-white">
                       <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png" alt="コーポレートサイトリニューアル" className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300" />
@@ -482,7 +482,7 @@ export default function Home() {
                 </Link>
 
                 {/* Card 3 */}
-                <Link href="/news/service-site" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                <Link href="/news/service-site" className="block group min-w-[280px] md:min-w-0 snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
                       <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-5O1GQnTYqA36chdwAqt55F3WEm2Gh8.webp" alt="サービスサイト公開" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -498,7 +498,7 @@ export default function Home() {
                 </Link>
 
                 {/* Card 4 */}
-                <Link href="/news/lp-site" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                <Link href="/news/lp-site" className="block group min-w-[280px] md:min-w-0 snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
                       <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-sz8DwuoplsY6JCcBh2GC6L2cVgOZrH.webp" alt="店舗様向けLP" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -514,7 +514,7 @@ export default function Home() {
                 </Link>
 
                 {/* Card 5 */}
-                <Link href="/news/trial" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                <Link href="/news/trial" className="block group min-w-[280px] md:min-w-0 snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
                       <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_c1849dfb9ecbb3f5a0607ecde050558e-ImNgaXwZZCz5HjcKTLP7hDy0OELtKo.webp" alt="ミセクル試験運用" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -530,7 +530,7 @@ export default function Home() {
                 </Link>
 
                 {/* Card 6 */}
-                <Link href="/news/browser-release" className="block group min-w-[280px] md:min-w-[320px] snap-center">
+                <Link href="/news/browser-release" className="block group min-w-[280px] md:min-w-0 snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
                       <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_728ed3f79bbdb61f6a8cc5c4e05de4af-rmqpPND8HO7fYJNwx6yONMKvgnBIfR.webp" alt="ブラウザ版サービス" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
