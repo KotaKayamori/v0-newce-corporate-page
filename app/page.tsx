@@ -309,7 +309,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ��を創ります。
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ���を創ります。
                   </p>
                 </div>
                 </ScrollReveal>
@@ -448,7 +448,7 @@ export default function Home() {
 
               {/* News cards - horizontal scroll (matching Service section layout) */}
               <ScrollReveal delay={200}>
-              <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-[calc((100vw-280px)/2)] md:mx-0 md:px-0" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+              <div className="flex gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory md:snap-none scrollbar-hide -mx-4 px-[calc((100vw-280px)/2)] md:mx-0 md:px-0" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
                 {/* Card 1 - Newest */}
                 <Link href="/news/recruitment-filing" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
