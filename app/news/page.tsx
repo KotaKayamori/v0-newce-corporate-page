@@ -122,7 +122,7 @@ export default function BlogPage() {
 
               {/* News list - Card Layout (Timee style) */}
               <ScrollReveal delay={200}>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
                 {filtered.length === 0 ? (
                   <div className="col-span-full py-12 text-center">
                     <p className="text-sm text-gray-500">該当する記事がありません</p>
@@ -131,8 +131,8 @@ export default function BlogPage() {
                   visible.map((article) => (
                     <Link key={article.href} href={article.href} className="block group">
                       <div className="h-full flex flex-col">
-                        {/* 1. Thumbnail - 16:9 aspect ratio, full width */}
-                        <div className="w-full aspect-[16/9] bg-gray-100 overflow-hidden rounded-sm">
+                        {/* 1. Thumbnail - 16:9 aspect ratio (aspect-video), full width */}
+                        <div className="w-full aspect-video bg-gray-50 overflow-hidden">
                           <img
                             src={article.thumbnail}
                             alt={article.title}
@@ -140,16 +140,16 @@ export default function BlogPage() {
                           />
                         </div>
                         {/* 2. Category (left) & Date (right) - directly below image */}
-                        <div className="flex items-center justify-between pt-5">
-                          <span className="bg-black text-white px-4 py-1.5 text-xs font-bold">{article.category}</span>
-                          <span className="text-gray-500 text-sm">{article.date}</span>
+                        <div className="flex items-center justify-between pt-6">
+                          <span className="bg-black text-white px-4 py-2 text-sm font-bold">{article.category}</span>
+                          <span className="text-gray-500 text-sm font-medium">{article.date}</span>
                         </div>
-                        {/* 3. Title - with good spacing */}
-                        <div className="pt-4 pb-5 flex-1">
-                          <h3 className="text-base leading-relaxed text-black line-clamp-3 group-hover:text-gray-600 transition-colors">{article.title}</h3>
+                        {/* 3. Title - text-lg with good line height */}
+                        <div className="pt-5 pb-6 flex-1">
+                          <h3 className="text-lg leading-loose text-black line-clamp-3 group-hover:text-gray-600 transition-colors">{article.title}</h3>
                         </div>
-                        {/* 4. Black underline - thick border */}
-                        <div className="border-b-[3px] border-black"></div>
+                        {/* 4. Black underline - thick border-b-2 */}
+                        <div className="border-b-2 border-black"></div>
                       </div>
                     </Link>
                   ))
