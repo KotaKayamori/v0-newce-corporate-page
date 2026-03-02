@@ -131,7 +131,7 @@ export default function BlogPage() {
                   visible.map((article) => (
                     <Link key={article.href} href={article.href} className="block group">
                       <div className="bg-white overflow-hidden transition-shadow hover:shadow-md h-full flex flex-col">
-                        {/* Thumbnail with overlay label */}
+                        {/* 1. Thumbnail */}
                         <div className="relative w-full aspect-[16/10] bg-gray-200">
                           <Image
                             src={article.thumbnail}
@@ -139,17 +139,17 @@ export default function BlogPage() {
                             fill
                             className="object-cover"
                           />
-                          {/* Category label on image bottom-left */}
-                          <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-3">
-                            <span className="bg-black text-white px-3 py-1 text-xs font-medium">{article.category}</span>
-                            <span className="text-white text-xs font-medium drop-shadow-md">{article.date}</span>
-                          </div>
                         </div>
-                        {/* Title */}
-                        <div className="p-4 flex-1">
+                        {/* 2. Category (left) & Date (right) */}
+                        <div className="flex items-center justify-between px-4 pt-4">
+                          <span className="bg-black text-white px-3 py-1 text-xs font-medium">{article.category}</span>
+                          <span className="text-gray-600 text-sm font-medium">{article.date}</span>
+                        </div>
+                        {/* 3. Title */}
+                        <div className="px-4 pt-3 pb-4 flex-1">
                           <h3 className="text-base leading-relaxed font-medium text-black line-clamp-2 group-hover:text-gray-600 transition-colors">{article.title}</h3>
                         </div>
-                        {/* Bottom border */}
+                        {/* 4. Black underline */}
                         <div className="border-b-2 border-black mx-4 mb-4"></div>
                       </div>
                     </Link>
