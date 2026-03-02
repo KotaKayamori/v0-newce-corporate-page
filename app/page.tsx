@@ -309,7 +309,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ��を創ります。
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービスを創ります。
                   </p>
                 </div>
                 </ScrollReveal>
@@ -610,7 +610,7 @@ export default function Home() {
             <div className="w-full max-w-4xl mx-auto">
               <div className="ml-2 md:-ml-8">
                 <h2 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none text-left">Contact</h2>
-                <p className="text-base text-black text-left mt-2 font-bold">お問い合わ���</p>
+                <p className="text-base text-black text-left mt-2 font-bold">お問い合わせ</p>
               </div>
 
               <p className="mt-6 text-sm md:text-base text-black ml-2 md:ml-0">会社やサービスに関するお問い合わせはこちら</p>
