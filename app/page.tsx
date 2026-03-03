@@ -309,7 +309,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ����を創ります。
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ�����を創ります。
                   </p>
                 </div>
                 </ScrollReveal>
@@ -453,7 +453,7 @@ export default function Home() {
                 <Link href="/news/recruitment-filing" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png" alt="特定募集情報等提供事業" className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300" />
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%89%B9%E5%AE%9A%E5%8B%9F%E9%9B%86%E6%83%85%E5%A0%B1%E7%AD%89%E6%8F%90%E4%BE%9B%E4%BA%8B%E6%A5%AD%E7%94%BB%E5%83%8F-lhnG1dg5S2Rs93u43RG3GvpZUHy6is.png" alt="特定募集情報等提供事業" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="flex items-center justify-between pt-4">
                       <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>

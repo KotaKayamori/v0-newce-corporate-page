@@ -7,7 +7,7 @@ import Footer from "@/components/footer"
 import ScrollReveal from "@/components/scroll-reveal"
 
 const allArticles = [
-  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png", imgStyle: "object-contain bg-white" },
+  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%89%B9%E5%AE%9A%E5%8B%9F%E9%9B%86%E6%83%85%E5%A0%B1%E7%AD%89%E6%8F%90%E4%BE%9B%E4%BA%8B%E6%A5%AD%E7%94%BB%E5%83%8F-lhnG1dg5S2Rs93u43RG3GvpZUHy6is.png", imgStyle: "object-cover" },
   { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png", imgStyle: "object-contain bg-white" },
   { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Service%20sate-BtnvxAVFmgLSC7rX5zBggrpJRLj7uF.png", imgStyle: "object-cover" },
   { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle%20LP-z5YWPO25wJBVkj5rzxhMr3SzvNn3b0.png", imgStyle: "object-cover" },
