@@ -7,13 +7,13 @@ import Footer from "@/components/footer"
 import ScrollReveal from "@/components/scroll-reveal"
 
 const allArticles = [
-  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png" },
-  { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png" },
-  { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Service%20sate-BtnvxAVFmgLSC7rX5zBggrpJRLj7uF.png" },
-  { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle%20LP-z5YWPO25wJBVkj5rzxhMr3SzvNn3b0.png" },
-  { href: "/news/trial", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ミセクル試験運用の開始について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20product-kW8MhgVBMq0PdIOKH5LTvrtWpa2RPl.png" },
-  { href: "/news/browser-release", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ブラウザ版サービスの提供開始のお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20%E3%83%95%E3%82%99%E3%83%A9%E3%82%A6%E3%82%B5%E3%82%99%E7%89%88%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9-qnRr7cCyUGGQq6aizGSHHQ8h6yqA6R.png" },
-  { href: "/news/line-account", date: "2025.09.04", year: 2025, category: "お知らせ", title: "株式会社Newceの公式LINEアカウントを開設しました", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%AC%E5%BC%8F%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%95%E3%82%9A%E3%83%AC%E3%82%B9%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9-Yvn3uZdLAj1qNseaUAUYZJI54v4Enq.png" },
+  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png", imgStyle: "object-contain bg-white" },
+  { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png", imgStyle: "object-contain bg-white" },
+  { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Service%20sate-BtnvxAVFmgLSC7rX5zBggrpJRLj7uF.png", imgStyle: "object-cover" },
+  { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle%20LP-z5YWPO25wJBVkj5rzxhMr3SzvNn3b0.png", imgStyle: "object-cover" },
+  { href: "/news/trial", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ミセクル試験運用の開始について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20product-kW8MhgVBMq0PdIOKH5LTvrtWpa2RPl.png", imgStyle: "object-contain bg-white" },
+  { href: "/news/browser-release", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ブラウザ版サービスの提供開始のお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20%E3%83%95%E3%82%99%E3%83%A9%E3%82%A6%E3%82%B5%E3%82%99%E7%89%88%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9-qnRr7cCyUGGQq6aizGSHHQ8h6yqA6R.png", imgStyle: "object-contain bg-white" },
+  { href: "/news/line-account", date: "2025.09.04", year: 2025, category: "お知らせ", title: "株式会社Newceの公式LINEアカウントを開設しました", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%AC%E5%BC%8F%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%95%E3%82%9A%E3%83%AC%E3%82%B9%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9-Yvn3uZdLAj1qNseaUAUYZJI54v4Enq.png", imgStyle: "object-cover" },
 ]
 
 const categories = ["すべて", "お知らせ", "プレスリリース", "メディア掲載"]
@@ -136,7 +136,7 @@ function handleYearChange(v: string) {
                           <img
                             src={article.thumbnail}
                             alt={article.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            className={`w-full h-full ${article.imgStyle} group-hover:scale-105 transition-transform duration-300`}
                           />
                         </div>
                         {/* 2. Category (left) & Date (right) - directly below image */}

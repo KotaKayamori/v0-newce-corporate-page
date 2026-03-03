@@ -309,7 +309,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ���を創ります。
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ����を創ります。
                   </p>
                 </div>
                 </ScrollReveal>
@@ -453,7 +453,7 @@ export default function Home() {
                 <Link href="/news/recruitment-filing" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <img src="/images/news/recruitment-filing.jpg" alt="特定募集情報等提供事業" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png" alt="特定募集情報等提供事業" className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="flex items-center justify-between pt-4">
                       <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
@@ -685,7 +685,7 @@ export default function Home() {
                       id="home-message"
                       name="message"
                       required
-                      placeholder="ここにテキストを入力"
+                      placeholder="ここに��キストを入力"
                       className="w-full bg-gray-100 border-none rounded-md px-4 py-3 text-sm min-h-[150px] focus:outline-none focus:ring-2 focus:ring-black placeholder-gray-400"
                     />
                   </div>
