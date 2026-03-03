@@ -309,7 +309,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ��を創ります。
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ���を創ります。
                   </p>
                 </div>
                 </ScrollReveal>
@@ -517,7 +517,7 @@ export default function Home() {
                 <Link href="/news/trial" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_c1849dfb9ecbb3f5a0607ecde050558e-ImNgaXwZZCz5HjcKTLP7hDy0OELtKo.webp" alt="ミセクル試験運用" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20product-kW8MhgVBMq0PdIOKH5LTvrtWpa2RPl.png" alt="ミセクル試験運用" className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="flex items-center justify-between pt-4">
                       <span className="bg-black text-white px-3 py-1 text-xs font-bold">プレスリリース</span>
@@ -533,7 +533,7 @@ export default function Home() {
                 <Link href="/news/browser-release" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_728ed3f79bbdb61f6a8cc5c4e05de4af-rmqpPND8HO7fYJNwx6yONMKvgnBIfR.webp" alt="ブラウザ版サービス" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20%E3%83%95%E3%82%99%E3%83%A9%E3%82%A6%E3%82%B5%E3%82%99%E7%89%88%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9-qnRr7cCyUGGQq6aizGSHHQ8h6yqA6R.png" alt="ブラウザ版サービス" className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="flex items-center justify-between pt-4">
                       <span className="bg-black text-white px-3 py-1 text-xs font-bold">プレスリリース</span>

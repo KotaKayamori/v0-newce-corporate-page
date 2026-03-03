@@ -72,10 +72,10 @@ export default function BrowserReleaseArticlePage() {
               {/* Hero Image */}
               <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg mb-10">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_728ed3f79bbdb61f6a8cc5c4e05de4af-rmqpPND8HO7fYJNwx6yONMKvgnBIfR.webp"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20%E3%83%95%E3%82%99%E3%83%A9%E3%82%A6%E3%82%B5%E3%82%99%E7%89%88%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9-qnRr7cCyUGGQq6aizGSHHQ8h6yqA6R.png"
                   alt="ブラウザ版ミセクルをリリース"
                   fill
-                  className="object-cover"
+                  className="object-contain bg-white"
                 />
               </div>
 
