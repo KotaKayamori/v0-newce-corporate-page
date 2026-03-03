@@ -131,25 +131,23 @@ function handleYearChange(v: string) {
                   visible.map((article) => (
                     <Link key={article.href} href={article.href} className="block group">
                       <div className="h-full flex flex-col">
-                        {/* 1. Thumbnail - 16:9 aspect ratio (aspect-video), full width, rounded corners */}
-                        <div className="w-full aspect-video bg-gray-50 overflow-hidden rounded-lg">
+                        {/* 1. Thumbnail - 4:3 aspect ratio, full width, rounded corners */}
+                        <div className="w-full aspect-[4/3] bg-gray-50 overflow-hidden rounded-lg">
                           <img
                             src={article.thumbnail}
                             alt={article.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300"
                           />
                         </div>
                         {/* 2. Category (left) & Date (right) - directly below image */}
-                        <div className="flex items-center justify-between pt-6">
-                          <span className="bg-black text-white px-4 py-2 text-sm font-bold">{article.category}</span>
-                          <span className="text-gray-500 text-sm font-medium">{article.date}</span>
+                        <div className="flex items-center justify-between pt-4">
+                          <span className="bg-black text-white px-3 py-1 text-xs font-bold">{article.category}</span>
+                          <span className="text-black text-sm">{article.date}</span>
                         </div>
-                        {/* 3. Title - text-lg with good line height */}
-                        <div className="pt-5 pb-6 flex-1">
-                          <h3 className="text-lg leading-loose text-black line-clamp-3 group-hover:text-gray-600 transition-colors">{article.title}</h3>
+                        {/* 3. Title */}
+                        <div className="pt-3 flex-1">
+                          <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">{article.title}</h3>
                         </div>
-                        {/* 4. Black underline - thick border-b-2 */}
-                        <div className="border-b-2 border-black"></div>
                       </div>
                     </Link>
                   ))
