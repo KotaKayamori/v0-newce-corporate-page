@@ -39,7 +39,7 @@ function MobileDropdown({ label, options, value, onChange }: { label: string; op
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("すべて")
   const [selectedYear, setSelectedYear] = useState("すべて")
-  const [visibleCount, setVisibleCount] = useState(5)
+  const [visibleCount, setVisibleCount] = useState(6)
 
   const filtered = allArticles
     .filter((a) => {
@@ -52,13 +52,13 @@ export default function BlogPage() {
   const visible = filtered.slice(0, visibleCount)
   const hasMore = visibleCount < filtered.length
 
-  function handleCategoryChange(v: string) {
-    setSelectedCategory(v)
-    setVisibleCount(5)
+function handleCategoryChange(v: string) {
+  setSelectedCategory(v)
+  setVisibleCount(6)
   }
-  function handleYearChange(v: string) {
-    setSelectedYear(v)
-    setVisibleCount(5)
+function handleYearChange(v: string) {
+  setSelectedYear(v)
+  setVisibleCount(6)
   }
 
   return (
@@ -161,7 +161,7 @@ export default function BlogPage() {
               {hasMore && (
                 <div className="flex justify-center mt-10">
                   <button
-                    onClick={() => setVisibleCount((prev) => prev + 5)}
+                    onClick={() => setVisibleCount((prev) => prev + 6)}
                     className="inline-flex items-center justify-center px-10 py-3 border border-black bg-white text-black font-medium text-base rounded-full hover:bg-black hover:text-white transition-colors duration-300 gap-2"
                   >
                     {"もっと見る"}
