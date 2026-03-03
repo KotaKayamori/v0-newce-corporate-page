@@ -112,17 +112,17 @@ export default function BusinessPage() {
                   <h3 className="text-lg md:text-xl font-bold text-black mb-3">Misecle Product</h3>
                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 mb-4">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle-fEFya6s9nDv1x6yNaZMilS75ynyQ1u.webp"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20product-9NS6G9K8p2R3SZtznRyu6ooiROVLNp.png"
                       alt="Misecle Product"
                       fill
-                      className="object-cover object-top"
+                      className="object-contain bg-white"
                     />
                   </div>
                   <p className="text-sm md:text-base font-bold text-black mb-2">
                     {"「ミセクル（Misecle）｜ショート動画型グルメ予約サービス」のブラウザ版を公開しました。"}
                   </p>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    {"「ミセクル（Misecle）」は、ショート動画を活用してお店の魅力をリアルに体験できる新しいグルメ予約体験を提供します。従来の写真やテキストだけの情報では伝わりづらかった「店内の雰囲気」「料理の臨場感」などを、動画でわかりやすくユーザーへお届け。気になるお店は、アプリ上から直接飲食店を予約できます。現在、ブラウザ版でもサービスを公開中です。詳細は"}
+                    {"「ミセクル（Misecle）」は、ショート動画を活用してお店の魅力をリアルに体験できる新しいグルメ予約体験を提供しま���。従来の写真やテキストだけの情報では伝わりづらかった「店内の雰囲気」「料理の臨場感」などを、動画でわかりやすくユーザーへお届け。気になるお店は、アプリ上から直接飲食店を予約できます。現在、ブラウザ版でもサービスを公開中です。詳細は"}
                     <a href="https://app.newce.co.jp" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{"こちら"}</a>
                     {"をご覧ください。"}
                   </p>
@@ -135,10 +135,10 @@ export default function BusinessPage() {
                   <h3 className="text-lg md:text-xl font-bold text-black mb-3">Misecle Service site</h3>
                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 mb-4">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-Pwh6dNy0Psla9vDLIOSxxxr8pPTf95.webp"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Service%20sate-BtnvxAVFmgLSC7rX5zBggrpJRLj7uF.png"
                       alt="Misecle Service site"
                       fill
-                      className="object-cover object-top"
+                      className="object-cover"
                     />
                   </div>
                   <p className="text-sm md:text-base font-bold text-black mb-2">
@@ -158,10 +158,10 @@ export default function BusinessPage() {
                   <h3 className="text-lg md:text-xl font-bold text-black mb-3">Misecle LP</h3>
                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 mb-4">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-3IK2xxERjzsaWezYcKkf2GeDMnClRA.webp"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle%20LP-z5YWPO25wJBVkj5rzxhMr3SzvNn3b0.png"
                       alt="Misecle LP"
                       fill
-                      className="object-cover object-top"
+                      className="object-cover"
                     />
                   </div>
                   <p className="text-sm md:text-base font-bold text-black mb-2">

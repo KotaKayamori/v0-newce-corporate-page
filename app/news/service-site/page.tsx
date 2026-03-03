@@ -75,7 +75,7 @@ export default function ServiceSiteArticlePage() {
               {/* Hero Image */}
               <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg mb-10">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-5O1GQnTYqA36chdwAqt55F3WEm2Gh8.webp"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Service%20sate-BtnvxAVFmgLSC7rX5zBggrpJRLj7uF.png"
                   alt="ミセクル サービスサイト"
                   fill
                   className="object-cover"

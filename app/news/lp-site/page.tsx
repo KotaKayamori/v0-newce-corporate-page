@@ -75,7 +75,7 @@ export default function LpSiteArticlePage() {
               {/* Hero Image */}
               <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg mb-10">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-sz8DwuoplsY6JCcBh2GC6L2cVgOZrH.webp"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle%20LP-z5YWPO25wJBVkj5rzxhMr3SzvNn3b0.png"
                   alt="ミセクル 店舗様向けLP"
                   fill
                   className="object-cover"

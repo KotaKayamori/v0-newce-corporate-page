@@ -309,7 +309,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービスを創ります。
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ��を創ります。
                   </p>
                 </div>
                 </ScrollReveal>
@@ -379,10 +379,10 @@ export default function Home() {
                 <div className="min-w-[280px] md:min-w-0 snap-center">
                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 mb-4">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle-fEFya6s9nDv1x6yNaZMilS75ynyQ1u.webp"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20product-9NS6G9K8p2R3SZtznRyu6ooiROVLNp.png"
                       alt="Misecle Product"
                       fill
-                      className="object-cover"
+                      className="object-contain bg-white"
                     />
                   </div>
                   <p className="text-sm text-gray-400 mb-1">{"2025 / Product"}</p>
@@ -393,7 +393,7 @@ export default function Home() {
                 <div className="min-w-[280px] md:min-w-0 snap-center">
                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 mb-4">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-Pwh6dNy0Psla9vDLIOSxxxr8pPTf95.webp"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Service%20sate-BtnvxAVFmgLSC7rX5zBggrpJRLj7uF.png"
                       alt="Misecle Service site"
                       fill
                       className="object-cover"
@@ -407,7 +407,7 @@ export default function Home() {
                 <div className="min-w-[280px] md:min-w-0 snap-center">
                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 mb-4">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-3IK2xxERjzsaWezYcKkf2GeDMnClRA.webp"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle%20LP-z5YWPO25wJBVkj5rzxhMr3SzvNn3b0.png"
                       alt="Misecle LP"
                       fill
                       className="object-cover"
@@ -485,7 +485,7 @@ export default function Home() {
                 <Link href="/news/service-site" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-5O1GQnTYqA36chdwAqt55F3WEm2Gh8.webp" alt="サービスサイト公開" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Service%20sate-BtnvxAVFmgLSC7rX5zBggrpJRLj7uF.png" alt="サービスサイト公開" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="flex items-center justify-between pt-4">
                       <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
@@ -501,7 +501,7 @@ export default function Home() {
                 <Link href="/news/lp-site" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-sz8DwuoplsY6JCcBh2GC6L2cVgOZrH.webp" alt="店舗様向けLP" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle%20LP-z5YWPO25wJBVkj5rzxhMr3SzvNn3b0.png" alt="店舗様向けLP" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="flex items-center justify-between pt-4">
                       <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
