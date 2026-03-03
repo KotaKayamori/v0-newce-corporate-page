@@ -72,7 +72,7 @@ export default function LineAccountArticlePage() {
               {/* Hero Image */}
               <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg mb-10">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_40912932b3f605d687acce3960d8ab24-BQ9x8zPtnxdbqWNoz3LR3soSqwuRNu.webp"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%AC%E5%BC%8F%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%95%E3%82%9A%E3%83%AC%E3%82%B9%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9-Yvn3uZdLAj1qNseaUAUYZJI54v4Enq.png"
                   alt="LINE公式アカウント 友だち募集中"
                   fill
                   className="object-cover"
