@@ -7,7 +7,7 @@ import Footer from "@/components/footer"
 import ScrollReveal from "@/components/scroll-reveal"
 
 const allArticles = [
-  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "/images/news/recruitment-filing.jpg" },
+  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png" },
   { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png" },
   { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Service%20sate-BtnvxAVFmgLSC7rX5zBggrpJRLj7uF.png" },
   { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle%20LP-z5YWPO25wJBVkj5rzxhMr3SzvNn3b0.png" },
@@ -136,7 +136,7 @@ function handleYearChange(v: string) {
                           <img
                             src={article.thumbnail}
                             alt={article.title}
-                            className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                         </div>
                         {/* 2. Category (left) & Date (right) - directly below image */}
