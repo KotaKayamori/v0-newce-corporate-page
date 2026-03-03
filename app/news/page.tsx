@@ -131,8 +131,8 @@ export default function BlogPage() {
                   visible.map((article) => (
                     <Link key={article.href} href={article.href} className="block group">
                       <div className="h-full flex flex-col">
-                        {/* 1. Thumbnail - 16:9 aspect ratio (aspect-video), full width */}
-                        <div className="w-full aspect-video bg-gray-50 overflow-hidden">
+                        {/* 1. Thumbnail - 16:9 aspect ratio (aspect-video), full width, rounded corners */}
+                        <div className="w-full aspect-video bg-gray-50 overflow-hidden rounded-lg">
                           <img
                             src={article.thumbnail}
                             alt={article.title}
