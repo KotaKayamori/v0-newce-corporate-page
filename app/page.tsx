@@ -309,7 +309,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ�����を創ります。
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービスを創ります。
                   </p>
                 </div>
                 </ScrollReveal>
@@ -685,7 +685,7 @@ export default function Home() {
                       id="home-message"
                       name="message"
                       required
-                      placeholder="ここに��キストを入力"
+                      placeholder="ここにテキストを入力"
                       className="w-full bg-gray-100 border-none rounded-md px-4 py-3 text-sm min-h-[150px] focus:outline-none focus:ring-2 focus:ring-black placeholder-gray-400"
                     />
                   </div>

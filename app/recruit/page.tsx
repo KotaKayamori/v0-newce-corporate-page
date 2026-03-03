@@ -268,7 +268,7 @@ export default function RecruitPage() {
                     「ミセクル（Misecle）｜ショート動画型のグルメ予約サービス」の店舗様向けLPサイトを公開しました。
                   </p>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    ショート動画型グルメ予約サービス「Misecle（ミセクル）」の店舗向けのランディングページを公開しました。ショート動画を通じて、飲食店の魅��を伝え、ユーザーはアプリ動画内から直接飲食店を予約できます。現在、導入店舗を募集中です。詳細は
+                    ショート動画型グルメ予約サービス「Misecle（ミセクル）」の店舗向けのランディングページを公開しました。ショート動画を通じて、飲食店の魅力を伝え、ユーザーはアプリ動画内から直接飲食店を予約できます。現在、導入店舗を募集中です。詳細は
                     <a href="https://ad.newce.co.jp" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">こちら</a>
                     からご覧ください。
                   </p>
