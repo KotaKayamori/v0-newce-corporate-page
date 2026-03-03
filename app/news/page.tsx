@@ -7,13 +7,13 @@ import Footer from "@/components/footer"
 import ScrollReveal from "@/components/scroll-reveal"
 
 const allArticles = [
-  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "/images/news/recruitment-filing.jpg" },
-  { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png" },
-  { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-5O1GQnTYqA36chdwAqt55F3WEm2Gh8.webp" },
-  { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-sz8DwuoplsY6JCcBh2GC6L2cVgOZrH.webp" },
-  { href: "/news/trial", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ミセクル試験運用の開始について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_c1849dfb9ecbb3f5a0607ecde050558e-ImNgaXwZZCz5HjcKTLP7hDy0OELtKo.webp" },
-  { href: "/news/browser-release", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ブラウザ版サービスの提供開始のお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_728ed3f79bbdb61f6a8cc5c4e05de4af-rmqpPND8HO7fYJNwx6yONMKvgnBIfR.webp" },
-  { href: "/news/line-account", date: "2025.09.04", year: 2025, category: "お知らせ", title: "株式会社Newceの公式LINEアカウントを開設しました", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_40912932b3f605d687acce3960d8ab24-BQ9x8zPtnxdbqWNoz3LR3soSqwuRNu.webp" },
+  { href: "/news/recruitment-filing", date: "2026.02.21", year: 2026, category: "お知らせ", title: "特定募集情報等提供事業の届出完了について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%89%B9%E5%AE%9A%E5%8B%9F%E9%9B%86%E6%83%85%E5%A0%B1%E7%AD%89%E6%8F%90%E4%BE%9B%E4%BA%8B%E6%A5%AD%E7%94%BB%E5%83%8F-lhnG1dg5S2Rs93u43RG3GvpZUHy6is.png", imgStyle: "object-cover" },
+  { href: "/news/corporate-renewal", date: "2026.02.20", year: 2026, category: "お知らせ", title: "コーポレートサイトのリニューアルに関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%81%86%E3%81%84-hNp2pwAMMREzNw5nloduZ22OqaItK4.png", imgStyle: "object-contain bg-white" },
+  { href: "/news/service-site", date: "2025.12.11", year: 2025, category: "お知らせ", title: "サービスサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Service%20sate-BtnvxAVFmgLSC7rX5zBggrpJRLj7uF.png", imgStyle: "object-cover" },
+  { href: "/news/lp-site", date: "2025.12.02", year: 2025, category: "お知らせ", title: "店舗様向けLPサイトの公開に関するお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle%20LP-z5YWPO25wJBVkj5rzxhMr3SzvNn3b0.png", imgStyle: "object-cover" },
+  { href: "/news/trial", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ミセクル試験運用の開始について", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20product-kW8MhgVBMq0PdIOKH5LTvrtWpa2RPl.png", imgStyle: "object-contain bg-white" },
+  { href: "/news/browser-release", date: "2025.11.21", year: 2025, category: "プレスリリース", title: "ブラウザ版サービスの提供開始のお知らせ", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20%E3%83%95%E3%82%99%E3%83%A9%E3%82%A6%E3%82%B5%E3%82%99%E7%89%88%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9-qnRr7cCyUGGQq6aizGSHHQ8h6yqA6R.png", imgStyle: "object-contain bg-white" },
+  { href: "/news/line-account", date: "2025.09.04", year: 2025, category: "お知らせ", title: "株式会社Newceの公式LINEアカウントを開設しました", thumbnail: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%AC%E5%BC%8F%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%95%E3%82%9A%E3%83%AC%E3%82%B9%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9-Yvn3uZdLAj1qNseaUAUYZJI54v4Enq.png", imgStyle: "object-cover" },
 ]
 
 const categories = ["すべて", "お知らせ", "プレスリリース", "メディア掲載"]
@@ -39,7 +39,7 @@ function MobileDropdown({ label, options, value, onChange }: { label: string; op
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("すべて")
   const [selectedYear, setSelectedYear] = useState("すべて")
-  const [visibleCount, setVisibleCount] = useState(5)
+  const [visibleCount, setVisibleCount] = useState(6)
 
   const filtered = allArticles
     .filter((a) => {
@@ -52,13 +52,13 @@ export default function BlogPage() {
   const visible = filtered.slice(0, visibleCount)
   const hasMore = visibleCount < filtered.length
 
-  function handleCategoryChange(v: string) {
-    setSelectedCategory(v)
-    setVisibleCount(5)
+function handleCategoryChange(v: string) {
+  setSelectedCategory(v)
+  setVisibleCount(6)
   }
-  function handleYearChange(v: string) {
-    setSelectedYear(v)
-    setVisibleCount(5)
+function handleYearChange(v: string) {
+  setSelectedYear(v)
+  setVisibleCount(6)
   }
 
   return (
@@ -131,25 +131,23 @@ export default function BlogPage() {
                   visible.map((article) => (
                     <Link key={article.href} href={article.href} className="block group">
                       <div className="h-full flex flex-col">
-                        {/* 1. Thumbnail - 16:9 aspect ratio (aspect-video), full width */}
-                        <div className="w-full aspect-video bg-gray-50 overflow-hidden">
+                        {/* 1. Thumbnail - 4:3 aspect ratio, full width, rounded corners */}
+                        <div className="w-full aspect-[4/3] bg-gray-50 overflow-hidden rounded-lg">
                           <img
                             src={article.thumbnail}
                             alt={article.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            className={`w-full h-full ${article.imgStyle} group-hover:scale-105 transition-transform duration-300`}
                           />
                         </div>
                         {/* 2. Category (left) & Date (right) - directly below image */}
-                        <div className="flex items-center justify-between pt-6">
-                          <span className="bg-black text-white px-4 py-2 text-sm font-bold">{article.category}</span>
-                          <span className="text-gray-500 text-sm font-medium">{article.date}</span>
+                        <div className="flex items-center justify-between pt-4">
+                          <span className="bg-black text-white px-3 py-1 text-xs font-bold">{article.category}</span>
+                          <span className="text-black text-sm">{article.date}</span>
                         </div>
-                        {/* 3. Title - text-lg with good line height */}
-                        <div className="pt-5 pb-6 flex-1">
-                          <h3 className="text-lg leading-loose text-black line-clamp-3 group-hover:text-gray-600 transition-colors">{article.title}</h3>
+                        {/* 3. Title */}
+                        <div className="pt-3 flex-1">
+                          <h3 className="text-base leading-relaxed text-black line-clamp-2 group-hover:text-gray-600 transition-colors">{article.title}</h3>
                         </div>
-                        {/* 4. Black underline - thick border-b-2 */}
-                        <div className="border-b-2 border-black"></div>
                       </div>
                     </Link>
                   ))
@@ -161,7 +159,7 @@ export default function BlogPage() {
               {hasMore && (
                 <div className="flex justify-center mt-10">
                   <button
-                    onClick={() => setVisibleCount((prev) => prev + 5)}
+                    onClick={() => setVisibleCount((prev) => prev + 6)}
                     className="inline-flex items-center justify-center px-10 py-3 border border-black bg-white text-black font-medium text-base rounded-full hover:bg-black hover:text-white transition-colors duration-300 gap-2"
                   >
                     {"もっと見る"}

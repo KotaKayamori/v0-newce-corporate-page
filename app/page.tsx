@@ -379,10 +379,10 @@ export default function Home() {
                 <div className="min-w-[280px] md:min-w-0 snap-center">
                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 mb-4">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle-fEFya6s9nDv1x6yNaZMilS75ynyQ1u.webp"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20product-9NS6G9K8p2R3SZtznRyu6ooiROVLNp.png"
                       alt="Misecle Product"
                       fill
-                      className="object-cover"
+                      className="object-contain bg-white"
                     />
                   </div>
                   <p className="text-sm text-gray-400 mb-1">{"2025 / Product"}</p>
@@ -393,7 +393,7 @@ export default function Home() {
                 <div className="min-w-[280px] md:min-w-0 snap-center">
                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 mb-4">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-Pwh6dNy0Psla9vDLIOSxxxr8pPTf95.webp"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Service%20sate-BtnvxAVFmgLSC7rX5zBggrpJRLj7uF.png"
                       alt="Misecle Service site"
                       fill
                       className="object-cover"
@@ -407,7 +407,7 @@ export default function Home() {
                 <div className="min-w-[280px] md:min-w-0 snap-center">
                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 mb-4">
                     <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-3IK2xxERjzsaWezYcKkf2GeDMnClRA.webp"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle%20LP-z5YWPO25wJBVkj5rzxhMr3SzvNn3b0.png"
                       alt="Misecle LP"
                       fill
                       className="object-cover"
@@ -453,7 +453,7 @@ export default function Home() {
                 <Link href="/news/recruitment-filing" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <img src="/images/news/recruitment-filing.jpg" alt="特定募集情報等提供事業" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%89%B9%E5%AE%9A%E5%8B%9F%E9%9B%86%E6%83%85%E5%A0%B1%E7%AD%89%E6%8F%90%E4%BE%9B%E4%BA%8B%E6%A5%AD%E7%94%BB%E5%83%8F-lhnG1dg5S2Rs93u43RG3GvpZUHy6is.png" alt="特定募集情報等提供事業" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="flex items-center justify-between pt-4">
                       <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
@@ -485,7 +485,7 @@ export default function Home() {
                 <Link href="/news/service-site" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/service-5O1GQnTYqA36chdwAqt55F3WEm2Gh8.webp" alt="サービスサイト公開" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Service%20sate-BtnvxAVFmgLSC7rX5zBggrpJRLj7uF.png" alt="サービスサイト公開" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="flex items-center justify-between pt-4">
                       <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
@@ -501,7 +501,7 @@ export default function Home() {
                 <Link href="/news/lp-site" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle_app-sz8DwuoplsY6JCcBh2GC6L2cVgOZrH.webp" alt="店舗様向けLP" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/misecle%20LP-z5YWPO25wJBVkj5rzxhMr3SzvNn3b0.png" alt="店舗様向けLP" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="flex items-center justify-between pt-4">
                       <span className="bg-black text-white px-3 py-1 text-xs font-bold">お知らせ</span>
@@ -517,7 +517,7 @@ export default function Home() {
                 <Link href="/news/trial" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_c1849dfb9ecbb3f5a0607ecde050558e-ImNgaXwZZCz5HjcKTLP7hDy0OELtKo.webp" alt="ミセクル試験運用" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20product-kW8MhgVBMq0PdIOKH5LTvrtWpa2RPl.png" alt="ミセクル試験運用" className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="flex items-center justify-between pt-4">
                       <span className="bg-black text-white px-3 py-1 text-xs font-bold">プレスリリース</span>
@@ -533,7 +533,7 @@ export default function Home() {
                 <Link href="/news/browser-release" className="block group min-w-[280px] md:min-w-[320px] snap-center">
                   <div className="h-full flex flex-col">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-200">
-                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rectangle_large_type_2_728ed3f79bbdb61f6a8cc5c4e05de4af-rmqpPND8HO7fYJNwx6yONMKvgnBIfR.webp" alt="ブラウザ版サービス" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Misecle%20%E3%83%95%E3%82%99%E3%83%A9%E3%82%A6%E3%82%B5%E3%82%99%E7%89%88%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9-qnRr7cCyUGGQq6aizGSHHQ8h6yqA6R.png" alt="ブラウザ版サービス" className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-300" />
                     </div>
                     <div className="flex items-center justify-between pt-4">
                       <span className="bg-black text-white px-3 py-1 text-xs font-bold">プレスリリース</span>

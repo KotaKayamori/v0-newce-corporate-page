@@ -75,7 +75,7 @@ export default function RecruitmentFilingArticlePage() {
               {/* Hero Image */}
               <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg mb-10">
                 <Image
-                  src="/images/news/recruitment-filing.jpg"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%89%B9%E5%AE%9A%E5%8B%9F%E9%9B%86%E6%83%85%E5%A0%B1%E7%AD%89%E6%8F%90%E4%BE%9B%E4%BA%8B%E6%A5%AD%E7%94%BB%E5%83%8F-lhnG1dg5S2Rs93u43RG3GvpZUHy6is.png"
                   alt="特定募集情報等提供事業の届出完了"
                   fill
                   className="object-cover"
