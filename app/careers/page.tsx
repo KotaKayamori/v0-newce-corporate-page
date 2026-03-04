@@ -235,7 +235,7 @@ export default function CareersPage() {
     <div className="flex min-h-screen flex-col" style={{ backgroundColor: dynamicBg, transition: "background-color 1.5s ease" }}>
       {/* PC Header */}
       <div className="hidden md:block fixed top-0 left-0 right-0 z-50 px-4 pt-5">
-        <div className="w-full flex h-20 items-center justify-between px-8 lg:px-12 bg-white/70 backdrop-blur-md border-2 border-black rounded-full shadow-sm">
+        <div className="w-full flex h-20 items-center justify-between px-8 lg:px-12 bg-white/50 backdrop-blur-md rounded-full shadow-sm">
           <Link href="/careers" className="flex items-center">
             <span className="text-3xl font-bold text-black">Newce Careers</span>
           </Link>
@@ -258,7 +258,7 @@ export default function CareersPage() {
 
       {/* Mobile Header */}
       <header className={`md:hidden fixed top-0 z-50 w-full px-4 pt-4 ${isMenuOpen ? "pointer-events-none" : ""}`}>
-        <div className="flex h-16 items-center justify-between px-5 bg-white/70 backdrop-blur-md border-2 border-black rounded-full shadow-sm pointer-events-auto">
+        <div className="flex h-16 items-center justify-between px-5 bg-white/50 backdrop-blur-md rounded-full shadow-sm pointer-events-auto">
           <Link href="/careers" className="flex items-center">
             <span className="font-bold text-black pl-2" style={{ fontSize: "24px" }}>Newce Careers</span>
           </Link>
@@ -820,7 +820,7 @@ export default function CareersPage() {
                           ) : (
                             <>
                               <svg className="w-8 h-8 text-gray-400 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
-                              <span className="text-sm text-gray-500">ファイルを選択するか、ここにドラッグ＆ドロップしてください</span>
+                              <span className="text-sm text-gray-500">ファイルを選択するか、ここにドラッグ＆ドロッ��してください</span>
                             </>
                           )}
                           <input
