@@ -19,7 +19,7 @@ export default function Navbar() {
     <>
       {/* PC Navigation */}
       <div className="hidden md:block fixed top-0 left-0 right-0 z-50 px-4 pt-5">
-        <div className="w-full flex h-20 items-center justify-between px-8 lg:px-12">
+        <div className="w-full flex h-20 items-center justify-between px-8 lg:px-12 bg-white/50 backdrop-blur-md rounded-full shadow-sm">
           {/* PCナビゲーションの"Newce"ロゴ */}
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-3xl font-bold text-black">Newce</span>
@@ -41,7 +41,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       <header className={`md:hidden fixed top-0 z-50 w-full px-4 pt-4 ${isOpen ? "pointer-events-none" : ""}`}>
-        <div className="flex h-16 items-center justify-between px-5 pointer-events-auto">
+        <div className="flex h-16 items-center justify-between px-5 bg-white/50 backdrop-blur-md rounded-full shadow-sm pointer-events-auto">
           <Link href="/" className="flex items-center space-x-2 mt-0">
             <span className="text-3xl font-bold text-black pl-2">
               Newce
