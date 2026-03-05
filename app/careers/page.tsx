@@ -235,7 +235,7 @@ export default function CareersPage() {
     <div className="flex min-h-screen flex-col" style={{ backgroundColor: dynamicBg, transition: "background-color 1.5s ease" }}>
       {/* PC Header */}
       <div className="hidden md:block fixed top-0 left-0 right-0 z-50 px-4 pt-5">
-        <div className="w-full flex h-20 items-center justify-between px-8 lg:px-12">
+        <div className="w-full flex h-20 items-center justify-between px-8 lg:px-12 bg-white/50 backdrop-blur-md rounded-full shadow-sm">
           <Link href="/careers" className="flex items-center">
             <span className="text-3xl font-bold text-black">Newce Careers</span>
           </Link>
@@ -258,7 +258,7 @@ export default function CareersPage() {
 
       {/* Mobile Header */}
       <header className={`md:hidden fixed top-0 z-50 w-full px-4 pt-4 ${isMenuOpen ? "pointer-events-none" : ""}`}>
-        <div className="flex h-16 items-center justify-between px-5 pointer-events-auto">
+        <div className="flex h-16 items-center justify-between px-5 bg-white/50 backdrop-blur-md rounded-full shadow-sm pointer-events-auto">
           <Link href="/careers" className="flex items-center">
             <span className="font-bold text-black pl-2" style={{ fontSize: "24px" }}>Newce Careers</span>
           </Link>
