@@ -245,11 +245,10 @@ export default function CareersPage() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="flex flex-col items-center text-black transition-colors duration-200 hover:text-black/60"
-
+                className="nav-link-hover relative flex flex-col items-center text-black overflow-hidden px-2 py-1"
               >
-                <span className="text-lg font-bold leading-tight">{item.name}</span>
-                <span className="text-[10px] leading-tight mt-0.5">{item.jpName}</span>
+                <span className="relative z-10 text-lg font-bold leading-tight">{item.name}</span>
+                <span className="relative z-10 text-[10px] leading-tight mt-0.5">{item.jpName}</span>
               </Link>
             ))}
           </nav>
@@ -321,7 +320,7 @@ export default function CareersPage() {
         </div>
       )}
 
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes careerMenuFadeInDown {
           from {
             opacity: 0;
@@ -331,6 +330,35 @@ export default function CareersPage() {
             opacity: 1;
             transform: translateY(0);
           }
+        }
+
+        .nav-link-hover::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          transform: translateX(-100%);
+          transition: transform 0.3s ease;
+          z-index: 0;
+          border-radius: 4px;
+        }
+
+        .nav-link-hover:hover::before {
+          animation: navFlash 0.4s ease forwards;
+        }
+
+        .nav-link-hover:hover span {
+          color: white;
+          transition: color 0.15s ease;
+        }
+
+        @keyframes navFlash {
+          0% { transform: translateX(-100%); }
+          50% { transform: translateX(0); }
+          100% { transform: translateX(100%); }
         }
       `}</style>
 
