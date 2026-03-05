@@ -354,6 +354,7 @@ export default function CareersPage() {
                         src="/images/ceo-photo.webp"
                         alt="栢森公汰 CEO"
                         fill
+                        priority
                         className="object-cover"
                       />
                     </div>
