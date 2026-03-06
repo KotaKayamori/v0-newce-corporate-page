@@ -6,7 +6,6 @@ import Footer from "@/components/footer"
 import ScrollReveal from "@/components/scroll-reveal"
 
 import Image from "next/image"
-import { InteractiveDots } from "@/components/interactive-dots"
 
 export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -67,7 +66,7 @@ export default function Home() {
         {/* Mobile: tall portrait view with text visible / PC: natural full-width */}
         <section className="w-full relative overflow-hidden">
           {/* Mobile version - portrait image */}
-          <div className="block md:hidden relative">
+          <div className="block md:hidden">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%AF%8C%E5%A3%AB%E5%B1%B1%E3%82%B9%E3%83%9E%E3%83%9B-VeemRATx2sYoYDEuOvPcxBz0NwrN74.png"
               alt="Continuously Creating New Service - 世界を変える新しいサービスを生み出し続ける"
@@ -76,10 +75,9 @@ export default function Home() {
               className="w-full h-auto"
               priority
             />
-            <InteractiveDots />
           </div>
           {/* Desktop version - natural aspect ratio */}
-          <div className="hidden md:block relative">
+          <div className="hidden md:block">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%AF%8C%E5%A3%AB%E5%B1%B1-8m68f1c71surmLhYtGULUg9F8Xo8f8.png"
               alt="Continuously Creating New Service - 世界を変える新しいサービスを生み出し続ける"
@@ -88,7 +86,6 @@ export default function Home() {
               className="w-full h-auto"
               priority
             />
-            <InteractiveDots />
           </div>
         </section>
 
