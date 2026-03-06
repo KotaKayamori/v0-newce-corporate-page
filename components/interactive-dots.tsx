@@ -10,7 +10,8 @@ interface Dot {
   vx: number
   vy: number
   radius: number
-  opacity: number
+  baseOpacity: number
+  phase: number // For subtle animation variation
 }
 
 export function InteractiveDots() {
@@ -19,29 +20,33 @@ export function InteractiveDots() {
   const mouseRef = useRef({ x: -1000, y: -1000 })
   const animationRef = useRef<number>(0)
   const isMobileRef = useRef(false)
+  const timeRef = useRef(0)
 
   const initDots = useCallback((width: number, height: number) => {
     const dots: Dot[] = []
-    // Adjust dot spacing based on screen size
-    const spacing = isMobileRef.current ? 28 : 22
-    const cols = Math.ceil(width / spacing)
-    const rows = Math.ceil(height / spacing)
+    // Base spacing with randomization
+    const baseSpacing = isMobileRef.current ? 32 : 26
+    const dotCount = isMobileRef.current ? 800 : 1500
 
-    for (let i = 0; i < cols; i++) {
-      for (let j = 0; j < rows; j++) {
-        const x = i * spacing + spacing / 2
-        const y = j * spacing + spacing / 2
-        dots.push({
-          x,
-          y,
-          originX: x,
-          originY: y,
-          vx: 0,
-          vy: 0,
-          radius: isMobileRef.current ? 1.5 : 1.2,
-          opacity: 0.15 + Math.random() * 0.1, // Very subtle opacity
-        })
-      }
+    for (let i = 0; i < dotCount; i++) {
+      // Random position with some clustering tendency
+      const x = Math.random() * width
+      const y = Math.random() * height
+      
+      // Random size variation (small to medium)
+      const radius = (isMobileRef.current ? 1.2 : 0.8) + Math.random() * (isMobileRef.current ? 2 : 1.5)
+      
+      dots.push({
+        x,
+        y,
+        originX: x,
+        originY: y,
+        vx: 0,
+        vy: 0,
+        radius,
+        baseOpacity: 0.06 + Math.random() * 0.08, // Very low opacity (6-14%)
+        phase: Math.random() * Math.PI * 2, // Random phase for subtle breathing
+      })
     }
     dotsRef.current = dots
   }, [])
@@ -54,12 +59,14 @@ export function InteractiveDots() {
     if (!ctx) return
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    
+    timeRef.current += 0.02
 
     const mouseX = mouseRef.current.x
     const mouseY = mouseRef.current.y
     // Larger interaction radius on mobile for better touch experience
-    const interactionRadius = isMobileRef.current ? 120 : 80
-    const pushStrength = isMobileRef.current ? 8 : 6
+    const interactionRadius = isMobileRef.current ? 140 : 100
+    const pushStrength = isMobileRef.current ? 12 : 10
 
     dotsRef.current.forEach((dot) => {
       // Calculate distance from mouse/touch
@@ -68,19 +75,22 @@ export function InteractiveDots() {
       const distance = Math.sqrt(dx * dx + dy * dy)
 
       if (distance < interactionRadius && distance > 0) {
-        // Push dots away from cursor/touch
-        const force = (interactionRadius - distance) / interactionRadius
+        // Push dots away with elastic feel
+        const force = Math.pow((interactionRadius - distance) / interactionRadius, 2)
         const angle = Math.atan2(dy, dx)
         dot.vx += Math.cos(angle) * force * pushStrength
         dot.vy += Math.sin(angle) * force * pushStrength
       }
 
-      // Spring back to origin
-      const springStrength = 0.08
-      const damping = 0.9
+      // Spring back to origin with bouncy effect
+      const springStrength = 0.04 // Softer spring for more bounce
+      const damping = 0.92 // Less damping for more elasticity
 
-      dot.vx += (dot.originX - dot.x) * springStrength
-      dot.vy += (dot.originY - dot.y) * springStrength
+      const offsetX = dot.originX - dot.x
+      const offsetY = dot.originY - dot.y
+      
+      dot.vx += offsetX * springStrength
+      dot.vy += offsetY * springStrength
       dot.vx *= damping
       dot.vy *= damping
 
@@ -88,18 +98,28 @@ export function InteractiveDots() {
       dot.y += dot.vy
 
       // Calculate current displacement for glow effect
-      const displacement = Math.sqrt(
-        Math.pow(dot.x - dot.originX, 2) + Math.pow(dot.y - dot.originY, 2)
-      )
+      const displacement = Math.sqrt(offsetX * offsetX + offsetY * offsetY)
       
-      // Dots glow slightly when displaced
-      const glowIntensity = Math.min(displacement / 30, 0.4)
-      const currentOpacity = dot.opacity + glowIntensity
+      // Dots glow when displaced - "light particles" effect
+      const glowIntensity = Math.min(displacement / 20, 0.5)
+      
+      // Subtle breathing effect
+      const breathe = Math.sin(timeRef.current + dot.phase) * 0.02
+      
+      const currentOpacity = Math.min(dot.baseOpacity + glowIntensity + breathe, 0.6)
 
-      // Draw dot with subtle transparency
+      // Draw dot with radial gradient for soft edges
+      const gradient = ctx.createRadialGradient(
+        dot.x, dot.y, 0,
+        dot.x, dot.y, dot.radius
+      )
+      gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity})`)
+      gradient.addColorStop(0.5, `rgba(255, 255, 255, ${currentOpacity * 0.5})`)
+      gradient.addColorStop(1, `rgba(255, 255, 255, 0)`)
+
       ctx.beginPath()
       ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2)
-      ctx.fillStyle = `rgba(255, 255, 255, ${currentOpacity})`
+      ctx.fillStyle = gradient
       ctx.fill()
     })
 
@@ -186,7 +206,7 @@ export function InteractiveDots() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-auto z-10"
-      style={{ touchAction: "none" }}
+      style={{ touchAction: "none", mixBlendMode: "overlay" }}
     />
   )
 }
