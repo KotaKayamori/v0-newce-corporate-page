@@ -215,19 +215,29 @@ export function InteractiveDots() {
     // Mouse events
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      console.log("[v0] Mouse move:", x, y)
       mouseRef.current = {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
+        x,
+        y,
         active: true,
       }
     }
 
+    const handleMouseEnter = () => {
+      console.log("[v0] Mouse entered canvas")
+      mouseRef.current.active = true
+    }
+
     const handleMouseLeave = () => {
+      console.log("[v0] Mouse left canvas")
       mouseRef.current = { x: -1000, y: -1000, active: false }
     }
 
     // Touch events
     const handleTouchStart = (e: TouchEvent) => {
+      console.log("[v0] Touch start")
       if (e.touches.length > 0) {
         const rect = canvas.getBoundingClientRect()
         mouseRef.current = {
@@ -250,11 +260,12 @@ export function InteractiveDots() {
     }
 
     const handleTouchEnd = () => {
+      console.log("[v0] Touch end")
       mouseRef.current = { ...mouseRef.current, active: false }
     }
 
     canvas.addEventListener("mousemove", handleMouseMove)
-    canvas.addEventListener("mouseenter", () => { mouseRef.current.active = true })
+    canvas.addEventListener("mouseenter", handleMouseEnter)
     canvas.addEventListener("mouseleave", handleMouseLeave)
     canvas.addEventListener("touchstart", handleTouchStart, { passive: true })
     canvas.addEventListener("touchmove", handleTouchMove, { passive: true })
@@ -265,6 +276,7 @@ export function InteractiveDots() {
     return () => {
       window.removeEventListener("resize", resizeCanvas)
       canvas.removeEventListener("mousemove", handleMouseMove)
+      canvas.removeEventListener("mouseenter", handleMouseEnter)
       canvas.removeEventListener("mouseleave", handleMouseLeave)
       canvas.removeEventListener("touchstart", handleTouchStart)
       canvas.removeEventListener("touchmove", handleTouchMove)
