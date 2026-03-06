@@ -138,11 +138,11 @@ export function InteractiveDots() {
         blob.x, blob.y, currentRadius
       )
       
-      // Very soft, almost invisible blobs
-      const baseOpacity = 0.08
+      // More visible blobs - 40% opacity
+      const baseOpacity = 0.4
       gradient.addColorStop(0, `rgba(255, 255, 255, ${baseOpacity})`)
-      gradient.addColorStop(0.3, `rgba(240, 248, 255, ${baseOpacity * 0.7})`)
-      gradient.addColorStop(0.6, `rgba(230, 240, 255, ${baseOpacity * 0.4})`)
+      gradient.addColorStop(0.3, `rgba(240, 248, 255, ${baseOpacity * 0.8})`)
+      gradient.addColorStop(0.6, `rgba(230, 240, 255, ${baseOpacity * 0.5})`)
       gradient.addColorStop(1, `rgba(220, 235, 255, 0)`)
 
       ctx.beginPath()
@@ -165,18 +165,18 @@ export function InteractiveDots() {
     const data = imageData.data
 
     // Apply threshold to create metaball merging effect
-    const threshold = 20 // Pixels above this alpha value become more visible
-    const softness = 40
+    const threshold = 30 // Pixels above this alpha value become more visible
+    const softness = 60
 
     for (let i = 3; i < data.length; i += 4) {
       const alpha = data[i]
       if (alpha > threshold) {
         // Boost alpha for areas where blobs overlap
         const boost = Math.min((alpha - threshold) / softness, 1)
-        data[i] = Math.min(alpha + boost * 30, 60) // Cap at 60 for subtlety
+        data[i] = Math.min(alpha + boost * 80, 180) // Higher visibility
       } else {
-        // Fade out thin areas
-        data[i] = alpha * 0.5
+        // Keep thin areas slightly visible
+        data[i] = alpha * 0.7
       }
     }
 
@@ -215,29 +215,23 @@ export function InteractiveDots() {
     // Mouse events
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      console.log("[v0] Mouse move:", x, y)
       mouseRef.current = {
-        x,
-        y,
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
         active: true,
       }
     }
 
     const handleMouseEnter = () => {
-      console.log("[v0] Mouse entered canvas")
       mouseRef.current.active = true
     }
 
     const handleMouseLeave = () => {
-      console.log("[v0] Mouse left canvas")
       mouseRef.current = { x: -1000, y: -1000, active: false }
     }
 
     // Touch events
     const handleTouchStart = (e: TouchEvent) => {
-      console.log("[v0] Touch start")
       if (e.touches.length > 0) {
         const rect = canvas.getBoundingClientRect()
         mouseRef.current = {
@@ -260,7 +254,6 @@ export function InteractiveDots() {
     }
 
     const handleTouchEnd = () => {
-      console.log("[v0] Touch end")
       mouseRef.current = { ...mouseRef.current, active: false }
     }
 
@@ -288,11 +281,11 @@ export function InteractiveDots() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-auto z-10"
+      className="absolute inset-0 w-full h-full pointer-events-auto"
       style={{ 
         touchAction: "none", 
-        mixBlendMode: "soft-light",
-        filter: "blur(1px) contrast(1.2)",
+        zIndex: 10,
+        mixBlendMode: "overlay",
       }}
     />
   )
