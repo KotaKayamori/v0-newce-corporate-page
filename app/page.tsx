@@ -6,6 +6,7 @@ import Footer from "@/components/footer"
 import ScrollReveal from "@/components/scroll-reveal"
 
 import Image from "next/image"
+import { InteractiveDots } from "@/components/interactive-dots"
 
 export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -66,7 +67,7 @@ export default function Home() {
         {/* Mobile: tall portrait view with text visible / PC: natural full-width */}
         <section className="w-full relative overflow-hidden">
           {/* Mobile version - portrait image */}
-          <div className="block md:hidden">
+          <div className="block md:hidden relative">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%AF%8C%E5%A3%AB%E5%B1%B1%E3%82%B9%E3%83%9E%E3%83%9B-VeemRATx2sYoYDEuOvPcxBz0NwrN74.png"
               alt="Continuously Creating New Service - 世界を変える新しいサービスを生み出し続ける"
@@ -75,9 +76,10 @@ export default function Home() {
               className="w-full h-auto"
               priority
             />
+            <InteractiveDots />
           </div>
           {/* Desktop version - natural aspect ratio */}
-          <div className="hidden md:block">
+          <div className="hidden md:block relative">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%AF%8C%E5%A3%AB%E5%B1%B1-8m68f1c71surmLhYtGULUg9F8Xo8f8.png"
               alt="Continuously Creating New Service - 世界を変える新しいサービスを生み出し続ける"
@@ -86,6 +88,7 @@ export default function Home() {
               className="w-full h-auto"
               priority
             />
+            <InteractiveDots />
           </div>
         </section>
 
@@ -309,7 +312,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービスを創ります。
+                    iOSやAndroid向けのスマートフォンアプリを中心に、世の中から必要とされるプロダクトをゼロから設計します。企画から開発・運営まで一貫して行い、リリース後もユーザーから長く使われるサービ��を創ります。
                   </p>
                 </div>
                 </ScrollReveal>
