@@ -70,7 +70,7 @@ export default function PrivacyPolicyPage() {
 
                     <div>
                       <h2 className="text-lg font-bold text-black mb-3">{"5. 第三者提供の制限"}</h2>
-                      <p className="mb-3">{"当社は、次に掲げる場合を除くほか、あらかじめご本人の同意を得ないで、個人情報を第三者に提供しません。"}</p>
+                      <p className="mb-3">当社は、次に掲げる場合を除くほか、あらかじめご本人の同意を得ないで、個人情報を第三者に提供しません。</p>
                       <ul className="space-y-2 pl-1">
                         <li className="flex items-start gap-2">
                           <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-black flex-shrink-0"></span>
