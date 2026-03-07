@@ -99,11 +99,10 @@ export default function PrivacyPolicyPage() {
                     <div>
                       <h2 className="text-lg font-bold text-black mb-3">{"7. お問い合わせ窓口"}</h2>
                       <p className="mb-3">{"当社のプライバシーポリシーに関するお問い合わせは、下記までお願いいたします。"}</p>
-                      <div className="space-y-1 whitespace-nowrap">
-                        <p>{"〒150-0043"}</p>
-                        <p>{"東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル2F-C"}</p>
-                        <p>{"株式会社Newce"}</p>
-                        <p>{"プライバシーポリシー管理担当"}</p>
+                      <div className="space-y-1">
+                        <p>{"会社名：株式会社Newce"}</p>
+                        <p>{"所在地：〒150-0043　東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル2F-C"}</p>
+                        <p>{"お問い合わせ / 相談窓口：support@newce.co.jp"}</p>
                       </div>
                     </div>
                   </div>
